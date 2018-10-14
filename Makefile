@@ -23,11 +23,10 @@ PATHU =unity/
 PATHT =test/
 PATHB =build/
 PATHR =build/results/
-PATHI =./
 
 IPATH =-I. -I$(PATHU)
 
-INCS = $(PATHI)libft.h
+INCS = libft.h
 INCU +=$(PATHU)unity.h
 INCU +=$(PATHU)unity_internals.h
 
@@ -62,7 +61,7 @@ SRCS +=ft_putstr_fd.c
 SRCS +=ft_strcat.c
 SRCS +=ft_strchr.c
 SRCS +=ft_strclr.c
-SRCS +=ft_strcmp.c
+SRCS +=ft_strcmp.c #DONE
 SRCS +=ft_strcpy.c
 SRCS +=ft_strdel.c
 SRCS +=ft_strdup.c
@@ -71,7 +70,7 @@ SRCS +=ft_striter.c
 SRCS +=ft_striteri.c
 SRCS +=ft_strjoin.c
 SRCS +=ft_strlcat.c
-SRCS +=ft_strlen.c
+SRCS +=ft_strlen.c #DONE
 SRCS +=ft_strmap.c
 SRCS +=ft_strmapi.c
 SRCS +=ft_strncat.c
@@ -123,11 +122,9 @@ vpath %.h unity
 
 all : $(PATHO) $(NAME)
 
-test: build_dir do_test
+do_test: build_dir $(RESULTS)
 
 build_dir : $(PATHO) $(PATHB) $(PATHR)
-
-do_test : $(RESULTS)
 
 $(RESULTS): $(OUT)
 	@$(patsubst $(PATHR)%.txt,./$(PATHB)%.out, $@) > $@ 2>&1
@@ -174,4 +171,4 @@ fclean : clean
 
 re : fclean all
 
-re_test: t_clean test
+test: t_clean do_test
