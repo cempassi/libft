@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:37:47 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/12 12:38:30 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/10/16 15:39:54 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@ size_t	ft_strlen(const char *s)
 {
 	int		i;
 
-	if (*s == '\0' || !s)
+	if (*s == '\0')
 		return (0);
 	i = 0;
 	while (s[++i])
 		;
 	return (i);
 }
-#include "libft.h"
 

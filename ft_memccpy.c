@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 08:41:50 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/19 09:03:52 by cempassi         ###   ########.fr       */
+/*   Created: 2018/10/19 17:11:50 by cempassi          #+#    #+#             */
+/*   Updated: 2018/10/19 17:33:04 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	char	*search(const char *s, int c, int len)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	if(c == '\0')
-		return ((char *)(s + 1));
-	if(len == 0)
+	if (!n)
 		return (NULL);
-	return (*s == (char)c ? (char *)s : search(--s, c, --len));
-
+	*(unsigned char *)dst = *(unsigned char *)src;
+	if (*(unsigned char *)src == (unsigned char)c)
+		return ((unsigned char *)dst + 1);
+	return (n == 1 ? NULL : ft_memccpy(++dst, ++src, c, --n));
 }
-char *ft_strrchr(const char *s, int c)
-{
-	int		len;
-
-	if(!*s)
-		return (*s == (char)c ? (char *)s : NULL);
-	len = ft_strlen(s);
-	return (search(&s[len - 1], c, len));	
-}
-
-
