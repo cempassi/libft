@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:37:47 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/16 15:39:54 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/08 12:18:23 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,3 @@ size_t	ft_strlen(const char *s)
 		;
 	return (i);
 }
-

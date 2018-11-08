@@ -6,18 +6,15 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/29 00:07:00 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/08 12:12:17 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <unistd.h>
-# include <string.h>
-# include <stdlib.h>
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
+#include <string.h>
 
+/* Part I */
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 int		ft_isalpha(int c);
@@ -43,4 +40,16 @@ char	*ft_strncpy(char *dst, const char *src, size_t len);
 size_t	ft_strlen(const char *s);
 char	*ft_strstr(const char *haystack, const char *needle);
 
+/* Part II */
+void	ft_strclr(char *c);
+void	ft_strdel(char **as);
+char	*ft_strnew(size_t size);
+void	ft_putchar(char c);
+void	ft_putchar_fd(char c, int fd);
+void	ft_putendl(char const *s);
+void	ft_putendl_fd(char const *s, int fd);
+void	ft_putnbr(int n);
+void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr(char const *str);
+void	ft_putstr_fd(char const *str, int fd);
 #endif

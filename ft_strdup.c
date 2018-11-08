@@ -6,11 +6,12 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 16:45:20 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/19 16:50:07 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/08 09:53:25 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 char	*ft_strdup(const char *s1)
 {

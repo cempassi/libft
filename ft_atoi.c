@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/14 20:52:12 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/19 10:50:58 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/08 09:50:06 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,10 @@
 
 static	int	converter(const char *str, long result, int sign)
 {
-	int		holder;
-
 	if (!ft_isdigit(*str))
 		return (sign == 1 ? result : -result);
-	holder = result * 10 + *str - '0';
-	if ((sign == 1 && holder >= 214748364 && str[1] > '7') || 
-			(sign == -1 && holder >= 214748364 && str[1] > '8'))
-		return(-1);
-	return (converter(++str, holder, sign));
+	result = result * 10 + *str - '0';
+	return (converter(++str, result, sign));
 }
 
 int		ft_atoi(const char *str)
