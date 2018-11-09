@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/14 20:52:12 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 09:50:06 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:56:32 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ static	int	converter(const char *str, long result, int sign)
 	return (converter(++str, result, sign));
 }
 
-int		ft_atoi(const char *str)
+int			ft_atoi(const char *str)
 {
 	if (!str)
 		return (0);
-	while (strchr("\f\n\r\t\v ", *str))
+	while (ft_strchr("\f\n\r\t\v ", *str))
 		str++;
 	if ((*str == '+' && ft_isdigit(str[1])) || ft_isdigit(*str))
 		return (*str == '+' ? converter(&str[1], 0, 1) : converter(str, 0, 1));

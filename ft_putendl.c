@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 12:05:10 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 12:07:05 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:51:11 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putendl(char const *s)
 {
 	if (!s)
-		return;
+		return ;
 	ft_putstr(s);
 	ft_putchar('\n');
 }

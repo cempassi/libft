@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/15 13:36:58 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 13:03:42 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:48:42 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 
 void	ft_memdel(void **ap)
 {
-	if (!*ap || !ap) 
-		return;
+	if (!ap || !*ap)
+		return ;
 	free(*ap);
 	*ap = NULL;
-	return;
+	return ;
 }
-

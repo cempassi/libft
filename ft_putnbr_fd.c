@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 11:30:13 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 11:43:52 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:53:16 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,15 @@ static	void	converter(long nb, int fd)
 	}
 }
 
-void	ft_putnbr_fd(int n, int fd)
+void			ft_putnbr_fd(int n, int fd)
 {
 	long	nb;
 
 	nb = (long)n;
-
 	if (n == 0)
 		return (ft_putchar_fd('0', fd));
-	if (nb > 0 )
+	if (nb > 0)
 		return (converter(nb, fd));
-	ft_putchar('-');
+	ft_putchar_fd('-', fd);
 	return (converter(-nb, fd));
 }

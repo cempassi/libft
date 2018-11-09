@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/14 18:32:30 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/15 21:17:24 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:33:30 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if(!n)
-		return;
+	if (!n)
+		return ;
 	*((char *)s) = 0;
-	while(--n > 0)
+	while (--n > 0)
 		((char *)s)[n] = '\0';
 }

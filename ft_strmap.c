@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:27:10 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 13:36:08 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:37:36 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	*tmp = *s;
 	return (map);
 }
-

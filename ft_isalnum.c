@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 16:45:37 by cempassi          #+#    #+#             */
-/*   Updated: 2018/10/16 16:47:59 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 17:40:10 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,3 @@ int		ft_isalnum(int c)
 {
 	return (ft_isalpha(c) || ft_isdigit(c) ? 1 : 0);
 }
-

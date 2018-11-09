@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 13:41:15 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 13:43:30 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/09 19:38:28 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,3 @@ int		ft_strequ(char const *s1, char const *s2)
 		return (0);
 	return (ft_strcmp(s1, s2) == 0 ? 1 : 0);
 }
-
