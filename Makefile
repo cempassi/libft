@@ -65,12 +65,6 @@ SRCS +=ft_toupper.c #DONE
 
 #--------------------Part II-------------------#
 SRCS +=ft_itoa.c
-SRCS +=ft_lstadd.c
-SRCS +=ft_lstdel.c
-SRCS +=ft_lstdelone.c
-SRCS +=ft_lstiter.c
-SRCS +=ft_lstmap.c
-SRCS +=ft_lstnew.c
 SRCS +=ft_putchar.c
 SRCS +=ft_putchar_fd.c
 SRCS +=ft_putendl.c
@@ -94,6 +88,12 @@ SRCS +=ft_strsub.c
 SRCS +=ft_strtrim.c
 
 #--------------------Part III------------------#
+SRCS +=ft_lstadd.c
+SRCS +=ft_lstdel.c
+SRCS +=ft_lstdelone.c
+SRCS +=ft_lstiter.c
+SRCS +=ft_lstmap.c
+SRCS +=ft_lstnew.c
 
 SRCT =$(patsubst %.c,$(PATHT)test%.c, $(SRCS))
 SRCU =$(PATHU)Unity.c

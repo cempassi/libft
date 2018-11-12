@@ -6,21 +6,21 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:10:39 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/11 23:24:23 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/12 10:18:02 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static char	*ft_chr(const char *s, int c)
+static char			*ft_chr(const char *s, int c)
 {
 	if (!*s)
 		return (*s == (char)c ? (char *)s : NULL);
 	return (*s == (char)c ? (char *)s : ft_strchr(++s, c));
 }
 
-static char	*ft_ncpy(char *dst, const char *src, size_t len)
+static char			*ft_ncpy(char *dst, const char *src, size_t len)
 {
 	char	*d;
 
@@ -40,7 +40,7 @@ static char	*ft_ncpy(char *dst, const char *src, size_t len)
 	return (dst);
 }
 
-static char	*ft_sub(char const *s, unsigned int start, size_t len)
+static char			*ft_sub(char const *s, unsigned int start, size_t len)
 {
 	char			*sub;
 
