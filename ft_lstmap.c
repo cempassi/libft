@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 14:04:04 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/12 17:17:33 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/13 11:39:28 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*map;
 
-	map = f(ft_lstnew(lst->content, lst->content_size));
+	if (!(map = f(ft_lstnew(lst->content, lst->content_size))))
+		return (NULL);
 	mapper(map, NULL, lst->next, f);
 	return (map);
 }

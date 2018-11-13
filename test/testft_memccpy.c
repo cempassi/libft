@@ -1,19 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   testft_memccpy.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:36:42 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/13 11:24:04 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/07 16:46:48 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/07 16:47:04 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_lstadd(t_list **alst, t_list *new)
+int		main(void)
 {
-	new->next = *alst;
-	*alst = new;
+	return (0);
 }

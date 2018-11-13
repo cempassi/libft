@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd.c                                        :+:      :+:    :+:   */
+/*   ft_lstmerge.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:36:42 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/13 11:24:04 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/13 10:56:37 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/13 11:01:55 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd(t_list **alst, t_list *new)
+void	ft_lstmerge(t_list **alst, t_list *blst)
 {
-	new->next = *alst;
-	*alst = new;
+	t_list *holder;
+
+	holder = *alst;
+	if (*alst == NULL)
+	{
+		*alst = blst;
+		return ;
+	}
+	while (holder->next != NULL)
+		holder = holder->next;
+	holder->next = blst;
 }

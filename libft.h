@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/12 16:30:44 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/13 13:26:52 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void				ft_memdel(void **ap);
 void				*ft_memmove(void *dst, const void *src, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
 char				*ft_strcat(char *s1, const char *s2);
-size_t				ft_strlcat(char *dest, char *src, size_t size);
+size_t				ft_strlcat(char *dest, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 int					ft_strcmp(const char *s1, const char *s2);
@@ -81,4 +81,11 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
+void				ft_lstrev(t_list **alst);
+void				ft_lstaddback(t_list **alst, t_list *new);
+void				ft_lstmerge(t_list **alst, t_list *blst);
+t_list				*ft_lstfind(t_list *alst, void *to_find,\
+					int (*f)(t_list *, void *));
 #endif

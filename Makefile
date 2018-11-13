@@ -32,7 +32,7 @@ INCU +=$(PATHU)unity.h
 INCU +=$(PATHU)unity_internals.h
 
 #--------------------Part I--------------------#
-SRCS +=ft_atoi.c
+SRCS +=ft_atoi.c #DONE
 SRCS +=ft_bzero.c #DONE
 SRCS +=ft_isalnum.c #DONE
 SRCS +=ft_isalpha.c #DONE
@@ -40,7 +40,7 @@ SRCS +=ft_isascii.c #DONE
 SRCS +=ft_isdigit.c #DONE
 SRCS +=ft_isprint.c #DONE
 SRCS +=ft_memalloc.c #DONE
-SRCS +=ft_memmove.c
+SRCS +=ft_memmove.c #DONE
 SRCS +=ft_memchr.c #DONE
 SRCS +=ft_memcmp.c #DONE
 SRCS +=ft_memcpy.c #DONE
@@ -52,7 +52,7 @@ SRCS +=ft_strchr.c #DONE
 SRCS +=ft_strcmp.c #DONE
 SRCS +=ft_strcpy.c #DONE
 SRCS +=ft_strdup.c #DONE
-SRCS +=ft_strlcat.c
+SRCS +=ft_strlcat.c #DONE
 SRCS +=ft_strlen.c #DONE
 SRCS +=ft_strncat.c #DONE
 SRCS +=ft_strncmp.c #DONE
@@ -64,36 +64,43 @@ SRCS +=ft_tolower.c #DONE
 SRCS +=ft_toupper.c #DONE
 
 #--------------------Part II-------------------#
-SRCS +=ft_itoa.c
-SRCS +=ft_putchar.c
-SRCS +=ft_putchar_fd.c
-SRCS +=ft_putendl.c
-SRCS +=ft_putendl_fd.c
-SRCS +=ft_putnbr.c
-SRCS +=ft_putnbr_fd.c
-SRCS +=ft_putstr.c
-SRCS +=ft_putstr_fd.c
-SRCS +=ft_strclr.c
-SRCS +=ft_strdel.c
-SRCS +=ft_strequ.c
-SRCS +=ft_striter.c
-SRCS +=ft_striteri.c
-SRCS +=ft_strjoin.c
-SRCS +=ft_strmap.c
-SRCS +=ft_strmapi.c
-SRCS +=ft_strnequ.c
-SRCS +=ft_strnew.c
-SRCS +=ft_strsplit.c
-SRCS +=ft_strsub.c
-SRCS +=ft_strtrim.c
+SRCS +=ft_itoa.c #DONE
+SRCS +=ft_putchar.c #DONE
+SRCS +=ft_putchar_fd.c #DONE
+SRCS +=ft_putendl.c #DONE
+SRCS +=ft_putendl_fd.c #DONE
+SRCS +=ft_putnbr.c #DONE
+SRCS +=ft_putnbr_fd.c #DONE
+SRCS +=ft_putstr.c #DONE
+SRCS +=ft_putstr_fd.c #DONE
+SRCS +=ft_strclr.c #DONE
+SRCS +=ft_strdel.c #DONE
+SRCS +=ft_strequ.c #DONE
+SRCS +=ft_striter.c #DONE
+SRCS +=ft_striteri.c #DONE
+SRCS +=ft_strjoin.c #DONE
+SRCS +=ft_strmap.c #DONE
+SRCS +=ft_strmapi.c #DONE
+SRCS +=ft_strnequ.c #DONE
+SRCS +=ft_strnew.c #DONE
+SRCS +=ft_strsplit.c #DONE
+SRCS +=ft_strsub.c #DONE
+SRCS +=ft_strtrim.c #DONE
 
 #--------------------Part III------------------#
-SRCS +=ft_lstadd.c
-SRCS +=ft_lstdel.c
-SRCS +=ft_lstdelone.c
-SRCS +=ft_lstiter.c
-SRCS +=ft_lstmap.c
-SRCS +=ft_lstnew.c
+SRCS +=ft_lstadd.c #DONE
+SRCS +=ft_lstdel.c #DONE
+SRCS +=ft_lstdelone.c #DONE
+SRCS +=ft_lstiter.c #DONE
+SRCS +=ft_lstmap.c #DONE
+SRCS +=ft_lstnew.c #DONE
+
+#--------------------Part IV-------------------#
+SRCS +=ft_convert_base.c #DONE
+SRCS +=ft_lstrev.c #DONE
+SRCS +=ft_lstaddback.c #DONE
+SRCS +=ft_lstmerge.c #DONE
+SRCS +=ft_lstfind.c #DONE
 
 SRCT =$(patsubst %.c,$(PATHT)test%.c, $(SRCS))
 SRCU =$(PATHU)Unity.c
@@ -157,11 +164,11 @@ rule:
 
 $(NAME): $(OBJS)
 	ar rus $@ $^
-	printf "$@ is ready"
+	printf "$@ is ready."
 
 $(OBJS): $(PATHO)%.o : %.c $(INCS)
 	$(COMPILE) $(OPT) $(CFLAGS) $< -o $@
-	#@printf "Compiling $<\n"
+	@printf "Compiling $<\n"
 
 $(OBJT): $(PATHO)%.o : $(PATHT)%.c $(INCS) $(INCU)
 	$(COMPILE) $(IPATH) $(CFLAGS) $< -o $@
