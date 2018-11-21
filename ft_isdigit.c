@@ -6,11 +6,9 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/16 16:39:59 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/09 17:56:59 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/20 16:03:10 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int		ft_isdigit(int c)
 {

@@ -20,16 +20,9 @@ CLEANUP =rm -rf
 MKDIR = mkdir -p
 
 PATHO =objs/
-PATHU =unity/
-PATHT =test/
-PATHB =build/
-PATHR =build/results/
-
-IPATH =-I. -I $(PATHU)
+PATHI =includes/
 
 INCS = libft.h
-INCU +=$(PATHU)unity.h
-INCU +=$(PATHU)unity_internals.h
 
 #--------------------Part I--------------------#
 SRCS +=ft_atoi.c #DONE
@@ -101,6 +94,7 @@ SRCS +=ft_lstrev.c #DONE
 SRCS +=ft_lstaddback.c #DONE
 SRCS +=ft_lstmerge.c #DONE
 SRCS +=ft_lstfind.c #DONE
+SRCS +=ft_strcspn.c #DONE
 
 SRCT =$(patsubst %.c,$(PATHT)test%.c, $(SRCS))
 SRCU =$(PATHU)Unity.c
@@ -116,87 +110,39 @@ RESULTS =$(patsubst $(PATHT)%.c,$(PATHR)%.txt,$(SRCT))
 WFLAGS +=-Wall
 WFLAGS +=-Werror
 WFLAGS +=-Wextra
+IFLAGS =-I $(PATHI)
 CFLAGS =$(WFLAGS)
 
-TESTED =-e "s/.*ft/ft_/" -e "s/.txt/: /"
-TEST_PASS ="[0-9]\+:PASS"
-TEST_IGNORE ="[0-9]\+:IGNORE"
-TEST_FAIL ="[0-9]\+:FAIL"
-TEST_RES =-o -e $(TEST_PASS) -e $(TEST_IGNORE) -e $(TEST_FAIL)
-
-PASS_COL =''/PASS/s//`printf "$(GREEN)PASS$(NC)"`/g''
-IGNORE_COL =''/IGNORE/s//`printf "$(YELLOW)IGNORE$(NC)"`/g''
-FAIL_COL =''/FAIL/s//`printf "$(RED)FAIL$(NC)"`/g''
-TEST_COL =-e $(PASS_COL) -e $(IGNORE_COL) -e $(FAIL_COL)
-
-.PHONY: all rule test do_test clean fclean t_clean re re_test done
+.PHONY: all clean fclean
 .SILENT:
-
+	
 vpath %.c .
-vpath %.c unity
-vpath %.c test
-vpath %.h unity
+vpath %.h includes
 
-all : rule $(PATHO) $(NAME)
+all : $(PATHO) $(NAME)
 
 do_test: build_dir $(RESULTS) done
 
 build_dir : $(PATHO) $(PATHB) $(PATHR)
 
-
-test: t_clean do_test
-$(RESULTS): $(OUT)
-	@$(patsubst $(PATHR)%.txt,-./$(PATHB)%.out, $@) > $@ 2>&1
-	@echo "$@" | sed $(TESTED) | tr -d '\n'
-	@grep $(TEST_RES) < $@ | sed $(TEST_COL) | tr -s '\n' ' '
-	@echo ""
-
-done:
-	@echo "\nDONE"
-
-$(OUT): $(NAME) $(OBJT) $(OBJU)
-	$(CC) -o $@ $< $(patsubst $(PATHB)%.out,$(PATHO)%.o,$@) $(OBJU)
-
-rule:
-	@echo "" >> dummy.c
-	@$(COMPILE) $(IPATH) $(CFLAGS) dummy.c
-	@$(CLEANUP) dummy.o dummy.c
-
 $(NAME): $(OBJS)
 	ar rus $@ $^
-	printf "$@ is ready."
+	@printf "$(GREEN)$@ is ready.\n$(NC)"
 
 $(OBJS): $(PATHO)%.o : %.c $(INCS)
-	$(COMPILE) $(OPT) $(CFLAGS) $< -o $@
-	@printf "Compiling $<\n"
-
-$(OBJT): $(PATHO)%.o : $(PATHT)%.c $(INCS) $(INCU)
-	$(COMPILE) $(IPATH) $(CFLAGS) $< -o $@
-
-$(OBJU): $(PATHO)%.o : $(PATHU)%.c $(INCU)
-	$(COMPILE) $(IPATH) $(CFLAGS) $< -o $@
+	$(COMPILE) $(OPT) $(CFLAGS) $(IFLAGS) $< -o $@
+	@printf "$(BLUE)Compiling $<\n$(NC)"
 
 $(PATHO) :
 	$(MKDIR) $(PATHO)
 
-$(PATHB):
-	$(MKDIR) $(PATHB)
-
-$(PATHR):
-	$(MKDIR) $(PATHR)
-
 clean:
 	@$(CLEANUP) $(PATHO)*.o
-	@echo "All *.o files removed"
-
-t_clean:
-	@$(CLEANUP) $(RESULTS)
+	@printf "$(RED)All *.o files removed\n$(NC)"
 
 fclean: clean
 	$(CLEANUP) $(NAME)
 	$(CLEANUP) $(PATHO)
-	$(CLEANUP) $(PATHB)
-	@echo "$(NAME) deleted"
+	@printf "$(RED)$(NAME) deleted\n$(NC)"
 
 re : fclean all
-

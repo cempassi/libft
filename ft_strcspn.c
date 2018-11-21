@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcspn.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/19 07:35:20 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/17 04:31:20 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/19 18:14:10 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/20 16:04:41 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+size_t		ft_strcspn(const char *s, const char *charset)
 {
-	if (!s)
-		return (NULL);
-	if (!*s)
-		return (*s == (char)c ? (char *)s : NULL);
+	int			i;
+	const char	*c;
+
+	i = 0;
 	while (*s)
 	{
-		if (*s == (char)c)
-			return ((char *)s);
+		c = charset;
+		while (*c)
+		{
+			if (*s == *c)
+				return (i);
+			c++;
+		}
 		s++;
+		i++;
 	}
-	return (NULL);
+	return (i);
 }

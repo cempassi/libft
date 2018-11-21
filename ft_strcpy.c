@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 16:13:53 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/09 17:47:06 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/17 06:21:45 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ char	*ft_strcpy(char *dst, const char *src)
 {
 	char *d;
 
+	if (!src)
+		return (dst);
 	d = dst;
 	while (*src)
 		*d++ = *src++;

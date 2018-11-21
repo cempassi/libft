@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 10:09:48 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/09 19:56:00 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/17 20:01:32 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putstr(char const *str)
 {
-	if (!str)
+	if (!str || !*str)
 		return ;
 	write(1, str, ft_strlen(str));
 }
