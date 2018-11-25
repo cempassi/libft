@@ -6,14 +6,14 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/12 13:36:27 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/24 21:45:30 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-t_list	*eraser(t_list *current, void (*del)(void *, size_t))
+static t_list	*eraser(t_list *current, void (*del)(void *, size_t))
 {
 	if (current)
 	{
@@ -23,9 +23,10 @@ t_list	*eraser(t_list *current, void (*del)(void *, size_t))
 	return (NULL);
 }
 
-void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
+void			*ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
 	if (!alst || !*alst)
-		return ;
+		return (NULL);
 	*alst = eraser(*alst, del);
+	return (NULL);
 }

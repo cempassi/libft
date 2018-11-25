@@ -1,6 +1,5 @@
 CC = Clang
 COMPILE = $(CC) -c
-OPT =-O2
 
 # Reset
 NC=\033[0m
@@ -95,17 +94,9 @@ SRCS +=ft_lstaddback.c #DONE
 SRCS +=ft_lstmerge.c #DONE
 SRCS +=ft_lstfind.c #DONE
 SRCS +=ft_strcspn.c #DONE
-
-SRCT =$(patsubst %.c,$(PATHT)test%.c, $(SRCS))
-SRCU =$(PATHU)Unity.c
+SRCS +=ft_strspn.c #DONE
 
 OBJS =$(patsubst %.c, $(PATHO)%.o, $(SRCS))
-OBJT +=$(patsubst $(PATHT)%.c, $(PATHO)%.o, $(SRCT))
-OBJU +=$(patsubst $(PATHU)%.c, $(PATHO)%.o, $(SRCU))
-OBJ =$(OBJS) $(OBJT) $(OBJU)
-
-OUT =$(patsubst $(PATHT)%.c, $(PATHB)%.out, $(SRCT))
-RESULTS =$(patsubst $(PATHT)%.c,$(PATHR)%.txt,$(SRCT))
 
 WFLAGS +=-Wall
 WFLAGS +=-Werror
@@ -121,16 +112,12 @@ vpath %.h includes
 
 all : $(PATHO) $(NAME)
 
-do_test: build_dir $(RESULTS) done
-
-build_dir : $(PATHO) $(PATHB) $(PATHR)
-
 $(NAME): $(OBJS)
 	ar rus $@ $^
 	@printf "$(GREEN)$@ is ready.\n$(NC)"
 
 $(OBJS): $(PATHO)%.o : %.c $(INCS)
-	$(COMPILE) $(OPT) $(CFLAGS) $(IFLAGS) $< -o $@
+	$(COMPILE) $(CFLAGS) $(IFLAGS) $< -o $@
 	@printf "$(BLUE)Compiling $<\n$(NC)"
 
 $(PATHO) :
