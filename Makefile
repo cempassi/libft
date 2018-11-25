@@ -106,7 +106,7 @@ CFLAGS =$(WFLAGS)
 
 .PHONY: all clean fclean
 .SILENT:
-	
+
 vpath %.c .
 vpath %.h includes
 
