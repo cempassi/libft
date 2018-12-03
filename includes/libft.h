@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/25 21:44:20 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/11/29 00:21:02 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ typedef struct		s_list{
 	size_t			data_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_opt{
+	char			*opt;
+	unsigned int	index;
+}					t_opt;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -63,7 +68,7 @@ char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char				*ft_strnew(size_t size);
-char				**ft_strsplit(char const *s, char c);
+char				**ft_strsplit(char const *s, char *c);
 char				*ft_strsub(char const *s, unsigned int start, size_t len);
 char				*ft_strtrim(char const *s);
 void				ft_putchar(char c);
@@ -76,18 +81,22 @@ void				ft_putstr(char const *str);
 void				ft_putstr_fd(char const *str, int fd);
 
 t_list				*ft_lstnew(void const *data, size_t data_size);
-void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void				*ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdelone(t_list **alst, void (*del)(void **));
+void				*ft_lstdel(t_list **alst, void (*del)(void **));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
+char				*ft_strinsert(char **str, char c, size_t index);
+int					ft_getopt(int ac, char **av, const char *optstr);
+size_t				ft_lstlen(t_list *lst);
 size_t				ft_strcspn(const char *s, const char *charset);
 size_t				ft_strspn(const char *s, const char *charset);
 void				ft_lstrev(t_list **alst);
 int					ft_lstaddback(t_list **alst, t_list *new);
 void				ft_lstmerge(t_list **alst, t_list *blst);
+t_list				*ft_tabtolst(char **tab);
 t_list				*ft_lstfind(t_list *alst, void *to_find,\
 					int (*f)(t_list *, void *));
 #endif

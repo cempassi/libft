@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strinsert.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/27 01:45:14 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/27 04:38:26 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/27 09:02:29 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <stdlib.h>
+#include "libft.h"
 
-static t_list	*eraser(t_list *current, void (*del)(void **))
+char		*ft_strinsert(char **str, char c, size_t index)
 {
-	if (current)
-	{
-		eraser(current->next, del);
-		ft_lstdelone(&current, del);
-	}
-	return (NULL);
-}
+	char		*tmp;
+	char		*cpy;
+	size_t		len;
+	size_t		i;
 
-void			*ft_lstdel(t_list **alst, void (*del)(void **))
-{
-	if (!alst || !*alst)
+	if (!str || !*str)
 		return (NULL);
-	*alst = eraser(*alst, del);
-	return (NULL);
+	i = 0;
+	cpy = *str;
+	len = ft_strlen(*str) + 2;
+	if (!(tmp = (char *)malloc(sizeof(char) * len)))
+		return (NULL);
+	while (--len)
+	{
+		if (i == index)
+			tmp[i] = c;
+		else
+			tmp[i] = *cpy++;
+		i++;
+	}
+	tmp[i] = '\0';
+	ft_strdel(str);
+	return (tmp);
 }

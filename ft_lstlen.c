@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/27 01:45:14 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/27 01:53:27 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/27 04:46:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static t_list	*eraser(t_list *current, void (*del)(void **))
+size_t		ft_lstlen(t_list *lst)
 {
-	if (current)
+	size_t		len;
+
+	len = 0;
+	if (!lst)
+		return (len);
+	while (lst)
 	{
-		eraser(current->next, del);
-		ft_lstdelone(&current, del);
+		lst = lst->next;
+		len++;
 	}
-	return (NULL);
-}
-
-void			*ft_lstdel(t_list **alst, void (*del)(void **))
-{
-	if (!alst || !*alst)
-		return (NULL);
-	*alst = eraser(*alst, del);
-	return (NULL);
+	return (len);
 }

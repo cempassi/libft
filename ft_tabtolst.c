@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_tabtolst.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/27 01:45:14 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/27 01:01:22 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/27 01:53:03 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static t_list	*eraser(t_list *current, void (*del)(void **))
+t_list	*ft_tabtolst(char **tab)
 {
-	if (current)
+	t_list	*lst;
+	t_list	*tmp;
+	int		i;
+
+	lst = NULL;
+	i = 0;
+	while (tab[i])
+		i++;
+	while (--i >= 0)
 	{
-		eraser(current->next, del);
-		ft_lstdelone(&current, del);
+		if (!(tmp = ft_lstnew(tab[i], ft_strlen(tab[i]) + 1)))
+			return (ft_lstdel(&lst, NULL));
+		ft_lstadd(&lst, tmp);
 	}
-	return (NULL);
-}
-
-void			*ft_lstdel(t_list **alst, void (*del)(void **))
-{
-	if (!alst || !*alst)
-		return (NULL);
-	*alst = eraser(*alst, del);
-	return (NULL);
+	return (lst);
 }

@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdel.c                                        :+:      :+:    :+:   */
+/*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/27 01:45:14 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/22 17:32:40 by cempassi          #+#    #+#             */
+/*   Updated: 2018/11/22 17:41:38 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-static t_list	*eraser(t_list *current, void (*del)(void **))
+size_t		ft_strspn(const char *s, const char *charset)
 {
-	if (current)
+	int			i;
+
+	i = 0;
+	while (*s)
 	{
-		eraser(current->next, del);
-		ft_lstdelone(&current, del);
+		if (ft_strchr(charset, *s) == NULL)
+			return (i);
+		s++;
+		i++;
 	}
-	return (NULL);
-}
-
-void			*ft_lstdel(t_list **alst, void (*del)(void **))
-{
-	if (!alst || !*alst)
-		return (NULL);
-	*alst = eraser(*alst, del);
-	return (NULL);
+	return (i);
 }
