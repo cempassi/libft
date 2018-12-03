@@ -117,7 +117,7 @@ DFLAGS = -fsanitize=address
 IFLAGS =-I$(PATHI)
 CFLAGS =$(WFLAGS)
 
-.PHONY: all clean fclean
+.PHONY: all clean fclean debug cleandb
 .SILENT:
 
 vpath %.c .
@@ -148,7 +148,9 @@ $(PATHO) :
 
 clean:
 	@$(CLEANUP) $(PATHO)*.o
-	@printf "$(RED)All *.o files removed\n$(NC)"
+	@printf "$(RED)All *.o files from libft removed\n$(NC)"
+	@$(CLEANUP) $(DSYM)
+	@printf "$(RED)All $(DSYM) removed\n$(NC)"
 
 cleandb :
 	$(CLEANUP) $(DBNAME)
@@ -158,4 +160,4 @@ fclean: clean cleandb
 	$(CLEANUP) $(PATHO)
 	@printf "$(RED)$(NAME) deleted\n$(NC)"
 
-re : fclean all debug cleandb
+re : fclean all
