@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/19 16:55:19 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/09 17:47:59 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/04 02:39:46 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ char	*ft_strcat(char *s1, const char *s2)
 	str = s1;
 	while (*str)
 		str++;
-	while (*s2)
+	while (s2 && *s2)
 		*str++ = *s2++;
-	*str = *s2;
+	*str = '\0';
 	return (s1);
 }

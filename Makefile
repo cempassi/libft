@@ -103,6 +103,7 @@ SRCS +=ft_putnbr_fd.c
 SRCS +=ft_putstr.c 
 SRCS +=ft_putstr_fd.c 
 SRCS +=ft_getopt.c
+SRCS +=ft_getdelim.c
 
 
 DSYM += $(NAME).dSYM

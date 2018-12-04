@@ -6,12 +6,13 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/04 02:12:21 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/04 03:09:40 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# define BUFF_SIZE 4096
 # include <string.h>
 
 typedef struct		s_list{
@@ -24,6 +25,12 @@ typedef struct		s_buffer{
 	char			*buffer;
 	unsigned int	index;
 }					t_buffer;
+
+typedef struct	s_file{
+	int			fd;
+	int			status;
+	char		*str;
+}				t_file;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -90,6 +97,7 @@ t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 char				*ft_strinsert(char **str, char c, size_t index);
 int					ft_getopt(int ac, char **av, const char *optstr);
+int					ft_getdelim(const int fd, char **line, char delim);
 size_t				ft_lstlen(t_list *lst);
 size_t				ft_strcspn(const char *s, const char *charset);
 size_t				ft_strspn(const char *s, const char *charset);
