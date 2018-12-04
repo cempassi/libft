@@ -105,7 +105,8 @@ SRCS +=ft_putstr_fd.c
 SRCS +=ft_getopt.c
 
 
-DSYM = $(NAME).dSYM
+DSYM += $(NAME).dSYM
+DSYM += $(DBNAME).dSYM
 
 OBJS =$(patsubst %.c, $(PATHO)%.o, $(SRCS))
 OBJD =$(patsubst %.c, $(PATHO)db%.o, $(SRCS))

@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/03 16:18:02 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/04 02:14:51 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,19 +39,19 @@ static int		parser(int ac, char **av, const char *optstr, char **opt)
 
 int				ft_getopt(int ac, char **av, const char *optstr)
 {
-	static t_opt	opt = {.opt = NULL, .index = 0};
+	static t_buffer	opt = {.buffer = NULL, .index = 0};
 
 	if (ac == 1 || av == NULL || optstr == NULL)
 		return (0);
-	if (!opt.opt && av[1][0] == '-')
+	if (!opt.buffer && av[1][0] == '-')
 	{
-		opt.opt = ft_strnew(0);
-		if (parser(ac, av, optstr, &opt.opt) == -1)
+		opt.buffer = ft_strnew(0);
+		if (parser(ac, av, optstr, &opt.buffer) == -1)
 			return ('?');
 	}
-	if (opt.opt && opt.opt[opt.index])
-		return ((int)opt.opt[(++opt.index) - 1]);
-	else if (opt.opt)
-		ft_strdel(&opt.opt);
+	if (opt.buffer && opt.buffer[opt.index])
+		return ((int)opt.buffer[(++opt.index) - 1]);
+	else if (opt.buffer)
+		ft_strdel(&opt.buffer);
 	return (-1);
 }

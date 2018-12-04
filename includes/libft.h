@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/29 00:21:02 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/04 02:12:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ typedef struct		s_list{
 	struct s_list	*next;
 }					t_list;
 
-typedef struct		s_opt{
-	char			*opt;
+typedef struct		s_buffer{
+	char			*buffer;
 	unsigned int	index;
-}					t_opt;
+}					t_buffer;
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
