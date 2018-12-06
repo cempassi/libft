@@ -36,7 +36,7 @@ SRCS +=ft_memccpy.c
 SRCS +=ft_memdel.c
 SRCS +=ft_memset.c 
 
-#--------------------Strings--------------------#
+#--------------------Strings---------------------#
 SRCS +=ft_isalnum.c 
 SRCS +=ft_isalpha.c 
 SRCS +=ft_isascii.c 
@@ -74,12 +74,15 @@ SRCS +=ft_strinsert.c
 SRCS +=ft_strcspn.c 
 SRCS +=ft_strspn.c 
 
-#--------------------Conversion-------------------#
+#--------------------Conversion------------------#
 SRCS +=ft_atoi.c 
 SRCS +=ft_itoa.c 
 SRCS +=ft_convert_base.c 
 
-#--------------------Lists------------------#
+#----------------------Tab-----------------------#
+SRCS +=ft_freetab.c 
+
+#--------------------Lists-----------------------#
 SRCS +=ft_lstadd.c 
 SRCS +=ft_lstdel.c 
 SRCS +=ft_lstdelone.c 
@@ -93,7 +96,7 @@ SRCS +=ft_lstfind.c
 SRCS +=ft_lstlen.c 
 SRCS +=ft_tabtolst.c 
 
-#--------------------Output-------------------#
+#--------------------Output----------------------#
 SRCS +=ft_putchar.c 
 SRCS +=ft_putchar_fd.c 
 SRCS +=ft_putendl.c 
@@ -101,6 +104,7 @@ SRCS +=ft_putendl_fd.c
 SRCS +=ft_putnbr.c 
 SRCS +=ft_putnbr_fd.c 
 SRCS +=ft_putstr.c 
+SRCS +=ft_putnstr.c 
 SRCS +=ft_putstr_fd.c 
 SRCS +=ft_getopt.c
 SRCS +=ft_getdelim.c
@@ -115,7 +119,6 @@ OBJD =$(patsubst %.c, $(PATHO)db%.o, $(SRCS))
 WFLAGS +=-Wall
 WFLAGS +=-Werror
 WFLAGS +=-Wextra
-DFLAGS = -fsanitize=address
 IFLAGS =-I$(PATHI)
 CFLAGS =$(WFLAGS)
 
@@ -156,6 +159,7 @@ clean:
 
 cleandb :
 	$(CLEANUP) $(DBNAME)
+	@printf "$(RED)$(DBNAME) deleted\n$(NC)"
 
 fclean: clean cleandb
 	$(CLEANUP) $(NAME)
