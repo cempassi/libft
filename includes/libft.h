@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/06 16:55:07 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/18 00:18:41 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_list{
 typedef struct		s_buffer{
 	char			*buffer;
 	unsigned int	index;
+	unsigned int	room;
 }					t_buffer;
 
 typedef struct		s_file{
@@ -91,9 +92,10 @@ void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
 void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
-void				ft_putstr(char const *str);
+int					ft_putstr(char const *str);
 void				ft_putnstr(char *str, size_t n);
 void				ft_putstr_fd(char const *str, int fd);
+int					ft_ringbuffer(char *str);
 
 t_list				*ft_lstnew(void const *data, size_t data_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void **));
