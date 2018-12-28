@@ -6,17 +6,17 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 17:08:37 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/18 00:11:45 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/20 01:25:32 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_ringflush(t_buffer *ring)
+static int		ft_ringflush(t_buffer *ring, int fd)
 {
 	int				output;
 
-	output = ft_putstr(&ring->buffer[ring->index]);
+	output = ft_putstr_fd(&ring->buffer[ring->index], fd);
 	ring->index += output;
 	if (ring->index >= BUFF_SIZE - 1)
 	{
@@ -27,7 +27,7 @@ static int		ft_ringflush(t_buffer *ring)
 	return (output);
 }
 
-int				ft_ringbuffer(char *str)
+int				ft_ringbuffer(char *str, int fd)
 {
 	static t_buffer ring = {.buffer = NULL, .index = 0, .room = BUFF_SIZE - 1};
 	size_t			size;
@@ -37,14 +37,14 @@ int				ft_ringbuffer(char *str)
 		if (!(ring.buffer = ft_memalloc(BUFF_SIZE)))
 			return (-1);
 	if (!str)
-		return (ft_ringflush(&ring));
+		return (ft_ringflush(&ring, fd));
 	size = ft_strlen(str);
 	if (size > ring.room)
 	{
 		diff = ring.room;
 		ft_strncat(&ring.buffer[ring.index], str, ring.room);
-		return (ft_ringflush(&ring) + ft_ringbuffer(&str[diff]));
+		return (ft_ringflush(&ring, fd) + ft_ringbuffer(&str[diff], fd));
 	}
 	ft_strcat(&ring.buffer[ring.index], str);
-	return (!(ring.room -= size) ? ft_ringflush(&ring) : 0);
+	return (!(ring.room -= size) ? ft_ringflush(&ring, fd) : 0);
 }

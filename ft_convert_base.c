@@ -6,65 +6,14 @@
 /*   By: cempassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/12 20:44:15 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/13 11:25:56 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/20 02:21:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int		ft_len(char *str)
-{
-	int		len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
-
-static void		base_convert(char *str, char *base, int baselen, long *result)
-{
-	int		i;
-
-	i = 0;
-	if (*str != '\0')
-	{
-		while (base[i] != *str)
-			i++;
-		*result = (*result * baselen) + i;
-		base_convert(str + 1, base, baselen, result);
-	}
-	return ;
-}
-
-static long		ft_atoi_base(char *str, char *base, char *buffer, int *index)
-{
-	int		baselen;
-	long	res;
-
-	res = 0;
-	baselen = ft_len(base);
-	if (str == 0 || *str == '\0')
-		return (0);
-	while (*str == ' ' || (*str >= '\t' && *str <= '\r'))
-		str++;
-	if (*str != '-')
-	{
-		*str == '+' ? base_convert(str + 1, base, baselen, &res) :
-			base_convert(str, base, baselen, &res);
-	}
-	else if (*str == '-')
-	{
-		base_convert(str + 1, base, baselen, &res);
-		buffer[0] = '-';
-		*index += 1;
-		return (res);
-	}
-	return (res);
-}
-
-static void		converter(long nb, char *base, int index, char *buffer)
+static void			s_conv(long long nb, char *base, int index, char *buffer)
 {
 	if (nb == 0 && index == 0)
 	{
@@ -74,32 +23,80 @@ static void		converter(long nb, char *base, int index, char *buffer)
 	}
 	if (nb > 0)
 	{
-		converter(nb / ft_strlen(base), base, index + 1, buffer);
-		buffer[index] = base[nb % ft_len(base)];
+		s_conv(nb / ft_strlen(base), base, index + 1, buffer);
+		buffer[index] = base[nb % ft_strlen(base)];
 		return ;
 	}
 	buffer[index] = '\0';
 	return ;
 }
 
-char			*ft_convert_base(char *nbr, char *base_from, char *base_to)
+static void			u_conv(unsigned long long nb, char *base, int id, char *buf)
 {
-	char	buffer[34];
-	char	*conv_res;
-	long	base_ten;
-	int		buff_len;
-	int		i;
+	if (nb == 0 && id == 0)
+	{
+		buf[0] = base[0];
+		buf[1] = '\0';
+		return ;
+	}
+	if (nb > 0)
+	{
+		u_conv(nb / ft_strlen(base), base, id + 1, buf);
+		buf[id] = base[nb % ft_strlen(base)];
+		return ;
+	}
+	buf[id] = '\0';
+	return ;
+}
 
-	i = 0;
-	base_ten = ft_atoi_base(nbr, base_from, buffer, &i);
-	converter(base_ten, base_to, i, buffer);
-	buff_len = ft_len(buffer) - 1;
-	if (!(conv_res = malloc(sizeof(char) * (ft_strlen(buffer) + i + 1))))
-		return (0);
+char				*convert_sign(char *nbr, char *base_from, char *base_to)
+{
+	char		buffer[BASE_MAX];
+	char		*conv_res;
+	long long	base_ten;
+	int			buff_len;
+	int			i;
+
+	i = ft_isdigit(*nbr) ? 0 : 1;
+	if (i)
+		buffer[0] = *nbr;
+	base_ten = ft_atoll_base(nbr, base_from);
+	s_conv(base_ten, base_to, i, buffer);
+	buff_len = ft_strlen(buffer);
+	if (!(conv_res = ft_strnew(buff_len + i)))
+		return (NULL);
 	conv_res[0] = buffer[0] == '-' ? '-' : '0';
 	while (buff_len >= 0)
-		conv_res[i++] = buffer[buff_len--];
+		conv_res[i++] = buffer[--buff_len];
 	i = buffer[0] == '-' ? i - 1 : i - 0;
 	conv_res[i] = '\0';
 	return (conv_res);
+}
+
+char				*convert_unsign(char *nbr, char *base_from, char *base_to)
+{
+	char				buffer[BASE_MAX];
+	char				*conv_res;
+	unsigned long long	base_ten;
+	int					buff_len;
+	int					i;
+
+	i = 0;
+	base_ten = ft_atoull_base(nbr, base_from);
+	u_conv(base_ten, base_to, i, buffer);
+	buff_len = ft_strlen(buffer);
+	if (!(conv_res = ft_strnew(buff_len)))
+		return (NULL);
+	while (buff_len >= 0)
+		conv_res[i++] = buffer[--buff_len];
+	conv_res[i] = '\0';
+	return (conv_res);
+}
+
+char				*ft_convert_base(char *nbr, char *base_from, char *base_to)
+{
+	if (*nbr == '-' || *nbr == '+')
+		return (convert_sign(nbr, base_from, base_to));
+	else
+		return (convert_unsign(nbr, base_from, base_to));
 }

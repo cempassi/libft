@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 13:06:45 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/20 03:20:29 by cempassi         ###   ########.fr       */
+/*   Created: 2018/11/09 16:07:03 by nrechati          #+#    #+#             */
+/*   Updated: 2018/11/09 16:07:04 by nrechati         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
-void	ft_lstdelone(t_list **alst, void (*del)(void **))
+char	*ft_strrev(char *str)
 {
-	if (!alst || !alst)
-		return ;
-	if (del)
-		del(&(*alst)->data);
-	else if ((*alst)->data)
-		ft_memdel(&(*alst)->data);
-	free(*alst);
-	*alst = NULL;
+	int a;
+	int b;
+
+	b = 0;
+	if (!str)
+		return (NULL);
+	while (str[b])
+	{
+		b++;
+	}
+	b--;
+	a = 0;
+	while (a < b)
+	{
+		str[a] ^= str[b];
+		str[b] ^= str[a];
+		str[a] ^= str[b];
+		a++;
+		b--;
+	}
+	return (str);
 }

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_ullitoa.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:27:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/19 23:12:50 by cempassi         ###   ########.fr       */
+/*   Updated: 2018/12/19 22:09:15 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-static int		numlen(long n)
+static int		numlen(unsigned long long n)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ static int		numlen(long n)
 	return (i);
 }
 
-static	void	converter(char *buffer, long n, int i)
+static	void	converter(char *buffer, unsigned long long n, int i)
 {
 	if (n > 0)
 	{
@@ -35,17 +35,15 @@ static	void	converter(char *buffer, long n, int i)
 	}
 }
 
-char			*ft_itoa(int n)
+char			*ft_ullitoa(unsigned long long int n)
 {
-	int		flag;
-	char	buffer[12];
+	char	*buffer;
+	size_t	len;
 
 	if (n == 0)
 		return (ft_strdup("0"));
-	flag = 0;
-	ft_bzero(buffer, 12);
-	if (n < 0)
-		buffer[flag++] = '-';
-	converter(buffer + flag, flag == 0 ? (long)n : -(long)n, numlen(n));
-	return (ft_strdup(buffer));
+	len = numlen(n);
+	buffer = ft_strnew(len);
+	converter(buffer, n, len);
+	return (buffer);
 }

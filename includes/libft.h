@@ -5,14 +5,15 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/12 12:34:49 by cempassi          #+#    #+#             */
-/*   Updated: 2018/12/18 00:18:41 by cempassi         ###   ########.fr       */
+/*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
+/*   Updated: 2018/12/20 02:20:52 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # define BUFF_SIZE 4096
+# define BASE_MAX 66
 # include <string.h>
 
 typedef struct		s_list{
@@ -35,6 +36,10 @@ typedef struct		s_file{
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
+char				*ft_llitoa(long long n);
+char				*ft_ullitoa(unsigned long long int n);
+long long			ft_atoll_base(char *str, char *base);
+unsigned long long	ft_atoull_base(char *str, char *base);
 char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 
 int					ft_isalpha(int c);
@@ -83,6 +88,7 @@ char				*ft_strcpy(char *dst, const char *src);
 char				*ft_strncpy(char *dst, const char *src, size_t len);
 size_t				ft_strlen(const char *s);
 char				*ft_strstr(const char *haystack, const char *needle);
+char				*ft_strrev(char *str);
 char				*ft_strnstr(const char *haystack, const char *needle,\
 					size_t len);
 
@@ -94,8 +100,8 @@ void				ft_putnbr(int n);
 void				ft_putnbr_fd(int n, int fd);
 int					ft_putstr(char const *str);
 void				ft_putnstr(char *str, size_t n);
-void				ft_putstr_fd(char const *str, int fd);
-int					ft_ringbuffer(char *str);
+int					ft_putstr_fd(char const *str, int fd);
+int					ft_ringbuffer(char *str, int fd);
 
 t_list				*ft_lstnew(void const *data, size_t data_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void **));
