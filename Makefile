@@ -84,6 +84,7 @@ SRCS +=ft_llitoa.c
 SRCS +=ft_atoll_base.c
 SRCS +=ft_atoull_base.c
 SRCS +=ft_convert_base.c
+SRCS +=ft_abs.c
 
 #----------------------Tab-----------------------#
 SRCS +=ft_freetab.c
