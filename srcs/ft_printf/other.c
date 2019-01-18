@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/17 18:13:42 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/18 19:31:52 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,58 @@ void			pointer(t_format *format)
 	{
 		width = ft_strnew(format->width);
 		ft_memset(width, ' ', format->width);
+	}
+	if (format->flag_minus)
+		format->output = ft_strjoin(tmp, width);
+	else
+		format->output = ft_strjoin(width, tmp);
+	ft_strdel(&tmp);
+	ft_strdel(&width);
+	return ;
+}
+
+void			string(t_format *format)
+{
+	char	*tmp;
+	char	*width;
+
+	width = NULL;
+	if (format->precision == -1)
+		tmp = ft_strdup(format->arg.string);
+	else
+		tmp = ft_strsub(format->arg.string, 0, format->precision);
+	format->width = format->width - ft_strlen(tmp);
+	if (format->width > 0)
+	{
+		width = ft_strnew(format->width);
+		if (format->flag_zero && !format->flag_minus)
+			ft_memset(width, '0', format->width);
+		else
+			ft_memset(width, ' ', format->width);
+	}
+	format->output = format->flag_minus ? ft_strjoin(tmp, width)
+										: ft_strjoin(width, tmp);
+	ft_strdel(&tmp);
+	ft_strdel(&width);
+	return ;
+}
+
+void			character(t_format *format)
+{
+	char		*tmp;
+	char		*width;
+
+	width = NULL;
+	tmp = ft_strnew(1);
+	*tmp = format->arg.character;
+	format->width = format->width - 1;
+	if (format->width > 0)
+	{
+		width = ft_strnew(format->width);
+		if (format->flag_zero && !format->flag_minus)
+			ft_memset(width, '0', format->width);
+		else
+			ft_memset(width, ' ', format->width);
 	}
 	if (format->flag_minus)
 		format->output = ft_strjoin(tmp, width);

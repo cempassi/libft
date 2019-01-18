@@ -6,13 +6,11 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 13:06:27 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/17 19:53:57 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/18 19:27:01 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_abs(int x)
+int	ft_abs(int c)
 {
-	if (x < 0)
-		return (-x);
-	return (x);
+	return (c < 0 ? -c : c);
 }

@@ -123,15 +123,10 @@ SRCS += extract.c
 SRCS += type.c
 SRCS += widthprec.c
 SRCS += output.c
-SRCS += char.c
 SRCS += digit.c
-SRCS += u_int.c
-SRCS += binary.c
-SRCS += octal.c
-SRCS += hexadecimal.c
+SRCS += unsigned.c
 SRCS += doubles.c
-SRCS += string.c
-SRCS += pointer.c
+SRCS += other.c
 
 DSYM += $(NAME).dSYM
 DSYM += $(DBNAME).dSYM
