@@ -24,6 +24,7 @@ PATHO =objs/
 PATHI =includes/
 
 INCS = libft.h
+INCS = ft_printf.h
 
 #--------------------Memory--------------------#
 SRCS +=ft_bzero.c
@@ -115,6 +116,22 @@ SRCS +=ft_ringbuffer.c
 SRCS +=ft_getopt.c
 SRCS +=ft_getdelim.c
 
+#--------------------ft_printf-------------------#
+SRCS += ft_printf.c
+SRCS += format.c
+SRCS += extract.c
+SRCS += type.c
+SRCS += widthprec.c
+SRCS += output.c
+SRCS += char.c
+SRCS += digit.c
+SRCS += u_int.c
+SRCS += binary.c
+SRCS += octal.c
+SRCS += hexadecimal.c
+SRCS += doubles.c
+SRCS += string.c
+SRCS += pointer.c
 
 DSYM += $(NAME).dSYM
 DSYM += $(DBNAME).dSYM
@@ -128,10 +145,8 @@ WFLAGS +=-Wextra
 IFLAGS =-I$(PATHI)
 CFLAGS =$(WFLAGS)
 
-.PHONY: all clean fclean debug cleandb
-.SILENT:
-
-vpath %.c .
+vpath %.c srcs/lib
+vpath %.c srcs/ft_printf
 vpath %.h includes
 
 all : $(PATHO) $(NAME)
@@ -140,36 +155,39 @@ debug : $(PATHO) $(DBNAME)
 
 $(NAME): $(OBJS)
 	ar rus $@ $^
-	@printf "$(GREEN)$@ is ready.\n$(NC)"
+	printf "$(GREEN)$@ is ready.\n$(NC)"
 
 $(DBNAME): $(OBJD)
 	ar rus $@ $^
-	@printf "$(GREEN)$@ is ready.\n$(NC)"
+	printf "$(GREEN)$@ is ready.\n$(NC)"
 
 $(OBJS): $(PATHO)%.o : %.c $(INCS)
 	$(COMPILE) $(CFLAGS) $(IFLAGS) $< -o $@
-	@printf "$(BLUE)Compiling $<\n$(NC)"
+	printf "$(BLUE)Compiling $<\n$(NC)"
 
 $(OBJD): $(PATHO)db%.o : %.c $(INCS)
 	$(DEBUG) $(DFLAGS) $(CFLAGS) $(IFLAGS) $< -o $@
-	@printf "$(BLUE)Compiling $< for debug\n$(NC)"
+	printf "$(BLUE)Compiling $< for debug\n$(NC)"
 
 $(PATHO) :
 	$(MKDIR) $(PATHO)
 
 clean:
-	@$(CLEANUP) $(PATHO)*.o
-	@printf "$(RED)All *.o files from libft removed\n$(NC)"
-	@$(CLEANUP) $(DSYM)
-	@printf "$(RED)All $(DSYM) removed\n$(NC)"
+	$(CLEANUP) $(PATHO)*.o
+	printf "$(RED)All *.o files from libft removed\n$(NC)"
+	$(CLEANUP) $(DSYM)
+	printf "$(RED)All $(DSYM) removed\n$(NC)"
 
 cleandb :
 	$(CLEANUP) $(DBNAME)
-	@printf "$(RED)$(DBNAME) deleted\n$(NC)"
+	printf "$(RED)$(DBNAME) deleted\n$(NC)"
 
 fclean: clean cleandb
 	$(CLEANUP) $(NAME)
 	$(CLEANUP) $(PATHO)
-	@printf "$(RED)$(NAME) deleted\n$(NC)"
+	printf "$(RED)$(NAME) deleted\n$(NC)"
 
 re : fclean all
+
+.PHONY: all clean fclean debug cleandb
+.SILENT:
