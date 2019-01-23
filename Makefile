@@ -90,6 +90,7 @@ SRCS +=ft_abs.c
 SRCS +=ft_freetab.c
 
 #--------------------Lists-----------------------#
+SRCS +=ft_mergesort.c
 SRCS +=ft_lstadd.c
 SRCS +=ft_lstdel.c
 SRCS +=ft_lstdelone.c

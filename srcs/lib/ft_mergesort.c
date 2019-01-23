@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:37:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/23 21:20:02 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/23 21:22:49 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_list		*ft_mergesort(t_list *lst, int (*cmp)(void *, void *))
 	if ((middle = ft_lstlen (lst) / 2) > 0)
 	{
 		left = lst;
-		while (i < middle)
+		while (i < middle && lst->next)
 		{
 			lst = lst->next;	
 			i++;
