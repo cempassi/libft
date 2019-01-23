@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/23 14:37:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/23 18:43:45 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/23 20:53:51 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static t_list	*merge(t_list *left, t_list *right, int (*cmp)(void *, void *))
 	t_list *lst;
 	t_list	*head;
 
-	if (cmp(left, right) >= 0)
+	if (cmp(left->data, right->data) >= 0)
 	{
 		head = left;
 		left = left->next;
@@ -30,7 +30,7 @@ static t_list	*merge(t_list *left, t_list *right, int (*cmp)(void *, void *))
 	lst = head;
 	while (left && right)
 	{
-		if (cmp(left, right) >= 0)
+		if (cmp(left->data, right->data) >= 0)
 		{
 			lst->next = left;
 			left = left->next;
@@ -57,7 +57,7 @@ t_list		*ft_mergesort(t_list *lst, int (*cmp)(void *, void *))
 	if ((middle = ft_lstlen (lst) / 2) > 0)
 	{
 		left = lst;
-		while (i < middle)
+		while (i < middle && lst->next)
 		{
 			lst = lst->next;	
 			i++;
