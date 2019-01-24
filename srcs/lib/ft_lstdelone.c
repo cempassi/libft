@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:06:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/24 12:44:46 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_lstdelone(t_list **alst, void (*del)(void **))
 		return ;
 	if (del)
 		del(&(*alst)->data);
-	else if ((*alst)->data)
+	if ((*alst)->data)
 		ft_memdel(&(*alst)->data);
 	free(*alst);
 	*alst = NULL;
