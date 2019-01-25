@@ -6,15 +6,15 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 01:59:47 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/25 18:28:49 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))	
+static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))
 {
-	if(!c)
+	if (!c)
 		return ;
 	if (f(c->data, ftr))
 		ft_lstaddback(h, ft_lstnew(c->data, c->data_size));

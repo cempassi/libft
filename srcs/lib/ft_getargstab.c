@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 20:38:08 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 17:49:46 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/25 18:28:14 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	**ft_getargstab(int ac, char **av)
 	{
 		tab = ft_memalloc((sizeof(char *) * (ac - i + 1)));
 		while (i < ac)
-			tab[j++] = av[i++];	
+			tab[j++] = av[i++];
 		tab[j] = NULL;
 	}
 	return (tab);
