@@ -102,6 +102,7 @@ SRCS +=ft_lstaddback.c
 SRCS +=ft_lstmerge.c
 SRCS +=ft_lstfind.c
 SRCS +=ft_lstlen.c
+SRCS +=ft_lstfilter.c
 SRCS +=ft_tabtolst.c
 
 #--------------------Output----------------------#
