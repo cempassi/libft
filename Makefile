@@ -93,8 +93,9 @@ SRCS +=ft_getargstab.c
 #--------------------Lists-----------------------#
 SRCS +=ft_mergesort.c
 SRCS +=ft_lstadd.c
-SRCS +=ft_lstdel.c
 SRCS +=ft_lstdelone.c
+SRCS +=ft_lstdelnext.c
+SRCS +=ft_lstdel.c
 SRCS +=ft_lstiter.c
 SRCS +=ft_lstmap.c
 SRCS +=ft_lstnew.c

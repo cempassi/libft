@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 18:02:15 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/25 19:11:24 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int					ft_ringbuffer(char *str, int fd);
 t_list				*ft_mergesort(t_list *lst, int (*cmp)(void *, void *));
 t_list				*ft_lstnew(void const *data, size_t data_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void **));
+void				ft_lstdelnext(t_list *current, void f(void **));
 void				*ft_lstdel(t_list **alst, void (*del)(void **));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
