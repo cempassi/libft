@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:43:50 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 18:45:25 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/25 18:49:58 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_list		*ft_getargslst(int ac, char **av)
 	{
 		while (i < ac)
 		{
-			ft_lstadd(&lst, ft_lstnew(av + i, ft_strlen(av[i]) + 1));
+			ft_lstadd(&lst, ft_lstnew(av[i], ft_strlen(av[i]) + 1));
 			i++;
 		}
 	}
