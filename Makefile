@@ -66,7 +66,6 @@ SRCS +=ft_strmap.c
 SRCS +=ft_strmapi.c
 SRCS +=ft_strnequ.c
 SRCS +=ft_strnew.c
-SRCS +=ft_strsplit.c
 SRCS +=ft_strsub.c
 SRCS +=ft_strtrim.c
 SRCS +=ft_tolower.c
@@ -87,7 +86,9 @@ SRCS +=ft_convert_base.c
 SRCS +=ft_abs.c
 
 #----------------------Tab-----------------------#
+SRCS +=ft_strsplit.c
 SRCS +=ft_freetab.c
+SRCS +=ft_getargstab.c
 
 #--------------------Lists-----------------------#
 SRCS +=ft_mergesort.c
@@ -103,6 +104,7 @@ SRCS +=ft_lstmerge.c
 SRCS +=ft_lstfind.c
 SRCS +=ft_lstlen.c
 SRCS +=ft_lstfilter.c
+SRCS +=ft_lstpop.c
 SRCS +=ft_tabtolst.c
 
 #--------------------Output----------------------#
@@ -118,7 +120,7 @@ SRCS +=ft_putstr_fd.c
 SRCS +=ft_ringbuffer.c
 SRCS +=ft_getopt.c
 SRCS +=ft_getdelim.c
-SRCS +=ft_getarg.c
+SRCS +=ft_getargslst.c
 
 #--------------------ft_printf-------------------#
 SRCS += ft_printf.c

@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_getarg.c                                        :+:      :+:    :+:   */
+/*   ft_getargstab.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 20:38:08 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 02:06:30 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/25 17:49:46 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-char	**ft_getargs(int ac, char **av)
+char	**ft_getargstab(int ac, char **av)
 {
 	char	**tab;
 	int		i;
