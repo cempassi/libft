@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 23:20:46 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/26 02:56:23 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))
 {
 	t_list	*next;
 
-	if (!c->next)
+	if (!c || !c->next)
 		return ;
 	if (f(c->next->data, ftr))
 	{
