@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:43:50 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/25 18:49:58 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/26 12:50:11 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_list		*ft_getargslst(int ac, char **av)
 	i = 1;
 	j = 0;
 	lst = NULL;
-	while (i < ac && av[i][0] == '-')
+	while (i < ac && av[i][0] == '-' && av[i][1])
 		i++;
 	if (i < ac)
 	{

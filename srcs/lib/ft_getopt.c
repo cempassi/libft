@@ -6,11 +6,27 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/26 12:41:40 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	push_back(char *to_push)
+{
+	char	holder;
+
+	if (!to_push)
+		return (1);
+	while(to_push[1])
+	{
+		holder = to_push[0];	
+		to_push[0] = to_push[1];
+		to_push[1] = holder;
+		to_push++;
+	}
+	return (0);
+}
 
 static int		parser(int ac, char **av, const char *optstr, char **opt)
 {
@@ -25,7 +41,7 @@ static int		parser(int ac, char **av, const char *optstr, char **opt)
 	while (av[lvl][i] != '\0' && flag)
 	{
 		flag = av[lvl][i] != '-' && ft_strchr(optstr, av[lvl][i]) ? 1 : 0;
-		if (!ft_strchr(*opt, av[lvl][i]) && flag)
+		if (push_back(ft_strchr(*opt, av[lvl][i])) && flag)
 			if (!(*opt = ft_strinsert(opt, av[lvl][i], ft_strlen(*opt))))
 				flag = 0;
 		i++;
