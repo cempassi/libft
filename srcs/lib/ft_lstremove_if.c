@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 07:39:30 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/28 08:03:29 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,18 @@ t_list	*ereaser(t_list *current, void *data, int (*test)(t_list *, void *),\
 
 	if (!current)
 		return (NULL);
-	if (test(current, data))
+	else if (test(current, data))
 	{
 		tmp = current->next;
 		ft_lstdelone(&current, del);
-		return (ereaser(tmp, data, test, del));
+		tmp = ereaser (tmp, data, test, del);
+		return (tmp);
 	}
 	else
-		return (current->next = ereaser(current->next, data, test, del));
+	{
+		current->next = ereaser(current->next, data, test, del);
+		return (current);
+	}
 }
 
 void	ft_lstremove_if(t_list **lst, void *data, int (*tst)(t_list *, void *),\
