@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 08:03:29 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/28 08:53:40 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_lstremove_if(t_list **lst, void *data, int (*tst)(t_list *, void *),\
 {
 	t_list		*tmp;
 
-	if (!*lst || !tst)
+	if (!lst || !*lst || !tst)
 		return ;
 	if (tst(*lst, data))
 	{
