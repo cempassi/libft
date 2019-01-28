@@ -106,6 +106,7 @@ SRCS +=ft_lstfind.c
 SRCS +=ft_lstlen.c
 SRCS +=ft_lstfilter.c
 SRCS +=ft_lstpop.c
+SRCS +=ft_lstremove_if.c
 SRCS +=ft_tabtolst.c
 
 #--------------------Output----------------------#
