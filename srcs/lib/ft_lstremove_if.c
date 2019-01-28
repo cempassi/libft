@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 10:05:23 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/28 10:15:04 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ static int	return_manager(int mask)
 	static int	check = 0;
 	int			holder;
 
-	if (mask & 1)
+	if (mask == 1)
 		return (check = 1);
-	else if (mask & 0)
+	else if (mask == 0)
 	{
 		holder = check;
 		check = 0;
