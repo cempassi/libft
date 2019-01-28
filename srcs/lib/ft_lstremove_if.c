@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 10:15:04 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/28 11:28:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	return_manager(int mask)
 	return (check);
 }
 
-t_list	*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
-		void (*del)(void **))
+t_list		*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
+			void (*del)(void **))
 {
 	t_list		*tmp;
 
@@ -50,19 +50,19 @@ t_list	*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
 	}
 }
 
-int		ft_lstremove_if(t_list **lst, void *data, int (*tst)(void *, void *),\
-		void (*del)(void **))
+int			ft_lstremove_if(t_list **lst, void *data, int (*tst)(void *, void *),\
+			void (*del)(void **))
 {
 	t_list		*tmp;
 
 	if (!lst || !*lst || !tst)
-		return (0);
+		return (return_manager(0));
 	if (tst((*lst)->data, data))
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(lst, del);
 		*lst = tmp;
-		 return_manager(1);
+		return_manager(1);
 		return (ft_lstremove_if(lst, data, tst, del));
 	}
 	if ((*lst)->next)
