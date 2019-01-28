@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 09:58:00 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/01/28 10:05:23 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
 
 	if (!current)
 		return (NULL);
-	else if (test(current, data))
+	else if (test(current->data, data))
 	{
 		tmp = current->next;
 		ft_lstdelone(&current, del);
