@@ -6,7 +6,7 @@
 /*   By: bwan-nan <bwan-nan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:02:58 by bwan-nan          #+#    #+#             */
-/*   Updated: 2019/02/01 18:04:38 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:07:37 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void			ft_mergesort(t_list **lst, int (*cmp)(void *, void *))
 	a = NULL;
 	b = NULL;
 	partition(head, &a, &b);
-	merge_sort(&a, cmp);
-	merge_sort(&b, cmp);
+	ft_mergesort(&a, cmp);
+	ft_mergesort(&b, cmp);
 	*lst = merge_lists(a, b, cmp);
 }
