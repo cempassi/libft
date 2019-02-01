@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 01:10:05 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 21:47:24 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/01 12:19:41 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void				type_unsigned_integer(t_format *format, va_list args)
 		format->arg.ul_integer = va_arg(args, unsigned long int);
 	else if (ft_strequ(format->size, "hh"))
 	{
-		format->arg.u_integer = va_arg(args, int);
+		format->arg.u_integer = va_arg(args, unsigned int);
 		format->arg.u_character = (unsigned char)format->arg.u_integer;
 	}
 	else if (ft_strequ(format->size, "h"))

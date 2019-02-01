@@ -1,78 +1,75 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mergesort.c                                     :+:      :+:    :+:   */
+/*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bwan-nan <bwan-nan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/23 14:37:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/23 21:44:50 by cempassi         ###   ########.fr       */
+/*   Created: 2019/01/24 15:02:58 by bwan-nan          #+#    #+#             */
+/*   Updated: 2019/02/01 17:33:59 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "ft_printf.h"
+#include "ft_ls.h"
 
-static t_list	*merge(t_list *left, t_list *right, int (*cmp)(void *, void *))
+static t_list	*merge_lists(t_list *a, t_list *b, int (*cmp)(void *, void *))
 {
-	t_list *lst;
-	t_list	*head;
+	t_list		*merged_list;
 
-	if (cmp(left->data, right->data) >= 0)
+	merged_list = NULL;
+	if (!a || !b)
+		return (!a ? b : a);
+	if (cmp(a->data, b->data) <= 0)
 	{
-		head = left;
-		left = left->next;
+		merged_list = a;
+		merged_list->next = merge_lists(a->next, b, cmp);
 	}
 	else
 	{
-		head = right;
-		right = right ->next;
+		merged_list = b;
+		merged_list->next = merge_lists(a, b->next, cmp);
 	}
-	lst = head;
-	while (left && right)
-	{
-		if (cmp(left->data, right->data) >= 0)
-		{
-			lst->next = left;
-			left = left->next;
-			lst = lst->next;
-		}
-		else
-		{
-			lst->next = right;
-			right = right->next;
-			lst = lst->next;
-		}
-	}
-	return (head);
+	return (merged_list);
 }
 
-void	print_data2(t_list *data)
+static void		partition(t_list *lst, t_list **front, t_list **back)
 {
-	ft_printf("%d\n", (int *)data->data);
+	t_list		*fast;
+	t_list		*slow;
+
+	*front = lst;
+	if (!lst || !lst->next)
+		*back = NULL;
+	else
+	{
+		slow = lst;
+		fast = lst->next;
+		while (fast)
+		{
+			if ((fast = fast->next))
+			{
+				slow = slow->next;
+				fast = fast->next;
+			}
+		}
+		*back = slow->next;
+		slow->next = NULL;
+	}
 }
 
-t_list		*ft_mergesort(t_list *lst, int (*cmp)(void *, void *))
+void			merge_sort(t_list **lst, int (*cmp)(void *, void *))
 {
-	t_list	*right;
-	t_list	*left;
-	size_t	middle;
-	size_t	i;
+	t_list		*head;
+	t_list		*a;
+	t_list		*b;
 
-	i = 0;
-	if ((middle = ft_lstlen (lst) / 2) - 1 > 1)
-	{
-		left = lst;
-		while (i < middle)
-		{
-			lst = lst->next;	
-			i++;
-		}
-		right = lst->next;
-		lst->next = NULL;
-		left = ft_mergesort(left, cmp);
-		right = ft_mergesort(right, cmp);
-		return (lst = merge(left, right, cmp));	
-	}
-	return (lst);
+	if (!lst || !*lst || !(*lst)->next)
+		return ;
+	head = *lst;
+	a = NULL;
+	b = NULL;
+	partition(head, &a, &b);
+	merge_sort(&a, cmp);
+	merge_sort(&b, cmp);
+	*lst = merge_lists(a, b, cmp);
 }
