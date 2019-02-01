@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/30 21:11:47 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/01 22:14:52 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static char		parser(int ac, char **av, const char *optstr, char **opt)
 		i++;
 	}
 	lvl++;
-	if (flag == 1 && (error = parser(ac, av, optstr, opt) == 1))
+	if (flag == 1 && (error = parser(ac, av, optstr, opt)) == 1)
 		return (1);
 	ft_strdel(opt);
 	return (error);
