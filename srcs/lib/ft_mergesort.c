@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   merge_sort.c                                       :+:      :+:    :+:   */
+/*   ft_mergesort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bwan-nan <bwan-nan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:02:58 by bwan-nan          #+#    #+#             */
-/*   Updated: 2019/02/01 17:33:59 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/01 18:04:38 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_ls.h"
+#include "libft.h"
 
 static t_list	*merge_lists(t_list *a, t_list *b, int (*cmp)(void *, void *))
 {
@@ -57,7 +57,7 @@ static void		partition(t_list *lst, t_list **front, t_list **back)
 	}
 }
 
-void			merge_sort(t_list **lst, int (*cmp)(void *, void *))
+void			ft_mergesort(t_list **lst, int (*cmp)(void *, void *))
 {
 	t_list		*head;
 	t_list		*a;
