@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pointer.c                                          :+:      :+:    :+:   */
+/*   other.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/18 19:31:52 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/02 19:59:39 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,9 @@ void			character(t_format *format)
 	ft_strdel(&tmp);
 	ft_strdel(&width);
 	return ;
+}
+
+void			color(t_format *format)
+{
+	format->output = ft_strdup(format->arg.string); 
 }

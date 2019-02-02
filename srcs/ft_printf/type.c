@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 01:10:05 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/01 12:19:41 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/02 20:02:27 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,13 +99,13 @@ void				type_other(t_format *format, va_list args)
 		format->arg.character = format->arg.integer;
 		format->convert = character;
 	}
-	if (format->type == 's')
+	if (format->type == 's' || format->type == 'r')
 	{
 		if ((format->arg.string = va_arg(args, char *)))
 			format->arg.string = ft_strdup(format->arg.string);
 		else
 			format->arg.string = ft_strdup("(null)");
-		format->convert = string;
+		format->convert = format->type == 's' ? string : color;
 	}
 	if (format->type == 'p')
 	{

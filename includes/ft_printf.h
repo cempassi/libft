@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/18 19:13:50 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/02 20:02:43 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 # define BASE_MAX 66
 # define FLAGS "-+0 #"
 # define SIZE "hlLIjzt"
-# define OTHER "csp%"
+# define OTHER "csp%r"
 # define SIGNED "Ddi"
 # define UNSIGNED "boOuUxX"
 # define FLOAT "fF"
-# define TYPE "cspdDiboOuUxXfF"
+# define TYPE "cspdDiboOuUxXfFr"
 # define TEN "0123456789"
 # define BINARY "01"
 # define OCTAL "01234567"
@@ -110,6 +110,7 @@ char					*unsigned_convert(t_format *format);
 
 void					pointer(t_format *format);
 void					string(t_format *format);
+void					color(t_format *format);
 void					digit(t_format *format);
 void					character(t_format *format);
 void					u_integer(t_format *format);
