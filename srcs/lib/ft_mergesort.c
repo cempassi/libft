@@ -6,7 +6,7 @@
 /*   By: bwan-nan <bwan-nan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/24 15:02:58 by bwan-nan          #+#    #+#             */
-/*   Updated: 2019/02/01 18:07:37 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/02 13:36:28 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ static t_list	*merge_lists(t_list *a, t_list *b, int (*cmp)(void *, void *))
 	t_list		*merged_list;
 
 	merged_list = NULL;
-	if (!a || !b)
-		return (!a ? b : a);
+	if (a == NULL)
+		return (b);
+	else if (b == NULL)
+		return (a);
 	if (cmp(a->data, b->data) <= 0)
 	{
 		merged_list = a;
