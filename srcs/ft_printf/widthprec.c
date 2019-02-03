@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 12:54:17 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 13:44:30 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,28 +90,23 @@ char		*signing(t_format *format, char *tmp, char flag)
 
 char		*colors(t_format *format, char *tmp)
 {
-	char	*space;
 	char	*join;
 	int		id;
 
 	id = ft_strspn(tmp, " ");
-	format->holder = tmp;
-	if (id && (space = ft_strsub(tmp, 0, id)))
+	join = NULL;
+	if (id)
 	{
-		join = ft_strjoin(space, format->color);
-		ft_strdel(&space);
-		tmp = ft_strjoin(join, &tmp[id]);
-		ft_strdel(&join);
-		ft_strdel(&format->holder);
+		ft_asprintf(&join, "%*s%s%s%s", id, tmp
+							, format->color, &tmp[id], END_COLOR);
 	}
 	else
 	{
-		tmp = ft_strjoin(format->color, tmp);
-		ft_strdel(&format->holder);
+		id = ft_strcspn(tmp, " ");
+		ft_asprintf(&join, "%s%*s%s%s", format->color, id
+							, tmp, END_COLOR, &tmp[id]);
 	}
-	format->holder = tmp;
-	tmp = ft_strjoin(tmp, END_COLOR);
-	ft_strdel(&format->holder);
 	format->color_len += ft_strlen(format->color) + ft_strlen(END_COLOR);
-	return (tmp);
+	ft_strdel(&tmp);
+	return (join);
 }
