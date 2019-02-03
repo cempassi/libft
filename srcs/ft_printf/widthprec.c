@@ -6,11 +6,12 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 13:44:30 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 13:57:26 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 char		*precision(t_format *format, char *tmp)
 {
@@ -97,13 +98,13 @@ char		*colors(t_format *format, char *tmp)
 	join = NULL;
 	if (id)
 	{
-		ft_asprintf(&join, "%*s%s%s%s", id, tmp
+		ft_asprintf(&join, "%.*s%s%s%s", id, tmp
 							, format->color, &tmp[id], END_COLOR);
 	}
 	else
 	{
 		id = ft_strcspn(tmp, " ");
-		ft_asprintf(&join, "%s%*s%s%s", format->color, id
+		ft_asprintf(&join, "%s%.*s%s%s", format->color, id
 							, tmp, END_COLOR, &tmp[id]);
 	}
 	format->color_len += ft_strlen(format->color) + ft_strlen(END_COLOR);
