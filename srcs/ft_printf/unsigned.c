@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 12:40:24 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 12:11:26 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:28:51 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,12 @@ void	hexadecimal(t_format *format)
 {
 	char	*tmp;
 	char	*holder;
-	int		i;
 
 	tmp = unsigned_convert(format);
 	holder = tmp;
 	tmp = *holder ? ft_convert_base(tmp, TEN, HEXA) : tmp;
+	if (*holder)
+		ft_strdel(&holder);
 	if ((format->precision -= ft_strlen(tmp)) > 0)
 		tmp = precision(format, tmp);
 	format->width = format->width - ft_strlen(tmp);
@@ -64,11 +65,8 @@ void	hexadecimal(t_format *format)
 		tmp = width(format, tmp);
 	if (format->flag_hashtag && *tmp)
 		tmp = prefix(format, tmp);
-	if (format->type == 'X' && !(i = 0))
-		while ((tmp[i] = ft_toupper(tmp[i])))
-			i++;
-	if (*holder)
-		ft_strdel(&holder);
+	if (format->type == 'X')
+		ft_strupper(tmp);
 	format->output = tmp;
 	return ;
 }
@@ -112,10 +110,7 @@ void	binary(t_format *format)
 	if ((format->precision -= len) > 0)
 		tmp = precision(format, tmp);
 	if (format->flag_hashtag && (holder = tmp))
-	{
-		tmp = ft_strjoin("0b", tmp);
-		ft_strdel(&holder);
-	}
+		tmp = prefix(format, tmp);
 	format->width = format->width - ft_strlen(tmp);
 	if (format->width > 0)
 		tmp = width(format, tmp);

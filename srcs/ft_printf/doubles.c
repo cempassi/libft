@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 13:38:49 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/17 16:56:56 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 12:28:17 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void				doubles(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_plus || format->flag_space || flag == '-')
-		tmp = sign(format, tmp, flag);
+		tmp = signing(format, tmp, flag);
 	format->output = tmp;
 	return ;
 }

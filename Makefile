@@ -70,6 +70,7 @@ SRCS +=ft_strsub.c
 SRCS +=ft_strtrim.c
 SRCS +=ft_tolower.c
 SRCS +=ft_toupper.c
+SRCS +=ft_strupper.c
 SRCS +=ft_strinsert.c
 SRCS +=ft_strcspn.c
 SRCS +=ft_strspn.c
