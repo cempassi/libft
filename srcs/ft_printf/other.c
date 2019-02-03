@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 01:51:03 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:56:41 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,10 @@ void			string(t_format *format)
 	else
 		tmp = ft_strsub(format->arg.string, 0, format->precision);
 	format->width = format->width - ft_strlen(tmp);
-	if (format->flag_color)
-		tmp = colors(format, tmp);	
 	if (format->width > 0)
 		tmp = width(format, tmp);
+	if (format->flag_color)
+		tmp = colors(format, tmp);	
 	format->output = tmp;
 	return ;
 }
