@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 12:11:44 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:50:36 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,7 @@ struct					s_format
 	char				*color;
 	char				*size;
 	char				*output;
+	char				*holder;
 	t_convert			convert;
 	t_args				arg;
 };
