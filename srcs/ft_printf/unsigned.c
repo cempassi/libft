@@ -6,11 +6,29 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 12:40:24 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/25 18:27:18 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 01:27:48 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+char	*unsigned_convert(t_format *format)
+{
+	char	*tmp;
+
+	tmp = NULL;
+	if (ft_strequ(format->size, "l") || ft_strchr("OU", format->type))
+		tmp = ft_ullitoa(format->arg.ul_integer);
+	else if (ft_strequ(format->size, "ll") || ft_strequ(format->size, "L"))
+		tmp = ft_ullitoa(format->arg.ull_integer);
+	else if (ft_strequ(format->size, "j"))
+		tmp = ft_ullitoa(format->arg.u_intmax);
+	else
+		tmp = ft_ullitoa(format->arg.u_integer);
+	if (*tmp == '0' && format->precision == 0)
+		*tmp = '\0';
+	return (tmp);
+}
 
 void	u_integer(t_format *format)
 {

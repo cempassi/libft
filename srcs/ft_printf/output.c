@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/20 01:37:04 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/02 20:01:32 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 01:50:32 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,7 @@ int				doutput(const char *fmt, t_list *node, int fd)
 					+ write(fd, "", 1)
 					+ doutput(fmt + tmp->diff, node->next, fd));
 		}
-		else if (tmp->type == 'r')
-		{
-		return (ft_ringbuffer(tmp->output, fd) - ft_strlen(tmp->output)
-				+ doutput(fmt + tmp->diff, node->next, fd));
-		}
-		return (ft_ringbuffer(tmp->output, fd)
+		return (ft_ringbuffer(tmp->output, fd) - tmp->color_len
 				+ doutput(fmt + tmp->diff, node->next, fd));
 	}
 	return (format_to_fd(&fmt, fd) + doutput(fmt, node, fd));

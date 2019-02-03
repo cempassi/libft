@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 21:10:22 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 01:44:24 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char		*width(t_format *format, char *tmp)
 
 	holder = tmp;
 	width = ft_strnew(format->width);
-	if (format->flag_zero == 1)
+	if (format->flag_zero == 1 && !ft_strchr(OTHER, format->type))
 		ft_memset(width, '0', format->width);
 	else
 		ft_memset(width, ' ', format->width);
@@ -88,20 +88,17 @@ char		*sign(t_format *format, char *tmp, char flag)
 	return (tmp);
 }
 
-char		*unsigned_convert(t_format *format)
+char		*colors(t_format *format, char *tmp)
 {
-	char	*tmp;
+	char	*holder;
 
-	tmp = NULL;
-	if (ft_strequ(format->size, "l") || ft_strchr("OU", format->type))
-		tmp = ft_ullitoa(format->arg.ul_integer);
-	else if (ft_strequ(format->size, "ll") || ft_strequ(format->size, "L"))
-		tmp = ft_ullitoa(format->arg.ull_integer);
-	else if (ft_strequ(format->size, "j"))
-		tmp = ft_ullitoa(format->arg.u_intmax);
-	else
-		tmp = ft_ullitoa(format->arg.u_integer);
-	if (*tmp == '0' && format->precision == 0)
-		*tmp = '\0';
+	holder = tmp;
+	tmp = ft_strjoin(format->color, tmp);
+	ft_strdel(&holder);
+	holder = tmp;
+	tmp = ft_strjoin(tmp, END_COLOR);
+	ft_strdel(&holder);
+	format->color_len += ft_strlen(format->color);
+	format->color_len += ft_strlen(END_COLOR);
 	return (tmp);
 }

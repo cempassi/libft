@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:24:20 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 01:29:43 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ static void		format_init(t_format *format)
 	format->flag_zero = 0;
 	format->flag_space = 0;
 	format->flag_hashtag = 0;
+	format->flag_color = 0;
+	format->color_len = 0;
 	format->type = 0;
 	format->diff = 0;
 	format->width = 0;
