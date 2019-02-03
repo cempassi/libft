@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:51:46 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 01:59:13 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 # define BINARY "01"
 # define OCTAL "01234567"
 # define HEXA "0123456789abcdef"
-# define END_COLOR "\x1b[0"
+# define END_COLOR "\x1b[0m"
 
 typedef struct s_format	t_format;
 typedef void			(*t_convert)(t_format *);
