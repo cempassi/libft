@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/18 12:51:06 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 01:24:20 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_list	*parser(char *spec, va_list args)
 		spec++;
 		format.diff += 1;
 		if (ft_strchr(FLAGS, *spec))
-			extract_flags(&spec, &format);
+			extract_flags(&spec, &format, args);
 		if (ft_isdigit(*spec) || *spec == '*')
 			extract_width(&spec, &format, args);
 		if (*spec == '.')
@@ -50,7 +50,7 @@ static t_list	*parser(char *spec, va_list args)
 		if (ft_strchr(SIZE, *spec))
 			extract_size(&spec, &format);
 		if (ft_strchr(FLAGS, *spec))
-			extract_flags(&spec, &format);
+			extract_flags(&spec, &format, args);
 		format.valid = extract_type(&spec, &format, args);
 	}
 	else

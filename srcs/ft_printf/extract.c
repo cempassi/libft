@@ -6,13 +6,13 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:40:22 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 21:47:04 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 01:24:58 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		extract_flags(char **spec, t_format *format)
+void		extract_flags(char **spec, t_format *format, va_list args)
 {
 	if (!ft_strchr(FLAGS, **spec))
 		return ;
@@ -26,6 +26,8 @@ void		extract_flags(char **spec, t_format *format)
 		format->flag_plus = 1;
 		format->flag_space = 0;
 	}
+	else if (**spec == '@' && !format->flag_color && (format->flag_color = 1))
+			format->color = ft_strdup(va_arg(args, char *));
 	else if (**spec == '0' && !format->flag_minus && format->flag_zero == 0)
 		format->flag_zero = ft_strchr(*spec, '.') ? -1 : 1;
 	else if (**spec == ' ' && !format->flag_plus)
@@ -34,7 +36,7 @@ void		extract_flags(char **spec, t_format *format)
 		format->flag_hashtag = 1;
 	format->diff++;
 	*spec += 1;
-	return (extract_flags(spec, format));
+	return (extract_flags(spec, format, args));
 }
 
 void		extract_width(char **spec, t_format *format, va_list args)

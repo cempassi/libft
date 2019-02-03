@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/02 20:02:43 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 01:23:30 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include "libft.h"
 # define BUFF_SIZE 4096
 # define BASE_MAX 66
-# define FLAGS "-+0 #"
+# define FLAGS "-+0 #@"
 # define SIZE "hlLIjzt"
 # define OTHER "csp%r"
 # define SIGNED "Ddi"
@@ -30,6 +30,7 @@
 # define BINARY "01"
 # define OCTAL "01234567"
 # define HEXA "0123456789abcdef"
+# define END_COLOR "\x1b[0"
 
 typedef struct s_format	t_format;
 typedef void			(*t_convert)(t_format *);
@@ -67,9 +68,12 @@ struct					s_format
 	char				flag_zero;
 	char				flag_space;
 	char				flag_hashtag;
+	char				flag_color;
 	int					width;
 	int					precision;
+	int					color_len;
 	unsigned int		diff;
+	char				*color;
 	char				*size;
 	char				*output;
 	t_convert			convert;
@@ -88,7 +92,8 @@ void					format_delete(void **data);
 int						doutput(const char *format, t_list *node, int fd);
 int						soutput(char **dst, const char *fmt, t_list *node);
 
-void					extract_flags(char **spec, t_format *format);
+void					extract_flags(char **spec, t_format *format,\
+						va_list args);
 void					extract_size(char **spec, t_format *format);
 void					extract_width(char **spec, t_format *format,\
 						va_list args);
