@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:44:24 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:11:23 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ char		*prefix(t_format *format, char *tmp)
 	return (tmp);
 }
 
-char		*sign(t_format *format, char *tmp, char flag)
+char		*signing(t_format *format, char *tmp, char flag)
 {
 	int i;
 

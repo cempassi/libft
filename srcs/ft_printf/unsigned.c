@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 12:40:24 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 01:27:48 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:11:26 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,8 @@ void	binary(t_format *format)
 	len = ft_strlen(tmp);
 	if ((format->precision -= len) > 0)
 		tmp = precision(format, tmp);
-	if (format->flag_hashtag)
+	if (format->flag_hashtag && (holder = tmp))
 	{
-		holder = tmp;
 		tmp = ft_strjoin("0b", tmp);
 		ft_strdel(&holder);
 	}

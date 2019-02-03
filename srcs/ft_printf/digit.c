@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:38:30 by nrechati          #+#    #+#             */
-/*   Updated: 2019/01/17 21:32:55 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/03 12:11:29 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,11 @@ static long long	flag_create(t_format *format, char *flag)
 void				digit(t_format *format)
 {
 	char			*tmp;
-	char			flag;
+	char			sign;
 	long long		value;
 
-	flag = ' ';
-	value = flag_create(format, &flag);
+	sign = ' ';
+	value = flag_create(format, &sign);
 	tmp = convert(format, value);
 	if ((format->precision -= ft_strlen(tmp)) > 0)
 	{
@@ -71,15 +71,15 @@ void				digit(t_format *format)
 		tmp = precision(format, tmp);
 	}
 	format->width = format->width - ft_strlen(tmp);
-	if (format->flag_plus || format->flag_space || flag == '-')
+	if (format->flag_plus || format->flag_space || sign == '-')
 	{
 		if (format->flag_minus || (*tmp == '0' && format->precision < 0))
 			format->width -= 1;
 	}
 	if (format->width > 0)
 		tmp = width(format, tmp);
-	if (format->flag_plus || format->flag_space || flag == '-')
-		tmp = sign(format, tmp, flag);
+	if (format->flag_plus || format->flag_space || sign == '-')
+		tmp = signing(format, tmp, sign);
 	format->output = tmp;
 	return ;
 }

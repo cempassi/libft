@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:59:13 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:11:44 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,7 @@ void					type_other(t_format *format, va_list args);
 char					*precision(t_format *format, char *tmp);
 char					*width(t_format *format, char *tmp);
 char					*prefix(t_format *format, char *tmp);
-char					*sign(t_format *format, char *tmp, char flag);
+char					*signing(t_format *format, char *tmp, char flag);
 char					*colors(t_format *format, char *tmp);
 char					*unsigned_convert(t_format *format);
 
