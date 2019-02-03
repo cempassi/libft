@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 12:56:41 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/03 12:59:02 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void			pointer(t_format *format)
 
 	tmp = converter(format);
 	format->width = format->width - ft_strlen(tmp);
-	if (format->flag_color)
-		tmp = colors(format, tmp);	
 	if (format->width > 0)
 		tmp = width(format, tmp);
+	if (format->flag_color)
+		tmp = colors(format, tmp);	
 	format->output = tmp;
 	return ;
 }
@@ -70,10 +70,10 @@ void			character(t_format *format)
 	tmp = ft_strnew(1);
 	*tmp = format->arg.character;
 	format->width = format->width - 1;
-	if (format->flag_color)
-		tmp = colors(format, tmp);	
 	if (format->width > 0)
 		tmp = width(format, tmp);
+	if (format->flag_color)
+		tmp = colors(format, tmp);	
 	format->output = tmp;
 	return ;
 }
