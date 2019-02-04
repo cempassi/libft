@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 12:40:24 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 12:59:37 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/04 21:38:41 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	u_integer(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }
@@ -70,7 +70,7 @@ void	hexadecimal(t_format *format)
 	if (format->type == 'X')
 		ft_strupper(tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }
@@ -96,7 +96,7 @@ void	octal(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }
@@ -121,7 +121,7 @@ void	binary(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }

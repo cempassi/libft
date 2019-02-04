@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/28 13:47:04 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/04 21:41:53 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ t_list		*ft_lstfilter(t_list **lst, void *filter, int (*f)(void *, void *))
 	new = NULL;
 	if (f((*lst)->data, filter))
 	{
-		new = (*lst);	
+		new = (*lst);
 		*lst = (*lst)->next;
 		new->next = NULL;
-	}	
+	}
 	extract(&new, *lst, filter, f);
 	return (new);
 }

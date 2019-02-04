@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 12:59:02 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/04 21:37:42 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void			pointer(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }
@@ -58,7 +58,7 @@ void			string(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }
@@ -73,7 +73,7 @@ void			character(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }

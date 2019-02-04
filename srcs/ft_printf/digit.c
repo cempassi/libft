@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 11:38:30 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 13:00:48 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/04 21:37:04 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void				digit(t_format *format)
 	if (format->flag_plus || format->flag_space || sign == '-')
 		tmp = signing(format, tmp, sign);
 	if (format->flag_color)
-		tmp = colors(format, tmp);	
+		tmp = colors(format, tmp);
 	format->output = tmp;
 	return ;
 }

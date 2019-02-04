@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/01 22:14:52 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/04 21:39:09 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static int		push_back(char *to_push)
 
 	if (!to_push)
 		return (1);
-	while(to_push[1])
+	while (to_push[1])
 	{
 		holder = to_push[0];
 		to_push[0] = to_push[1];
