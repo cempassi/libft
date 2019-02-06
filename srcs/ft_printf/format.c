@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:29:43 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/06 20:00:00 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void			format_delete(void **data)
 	format = (t_format *)(*data);
 	if (format->type == 's')
 		ft_strdel(&format->arg.string);
+	if (format->flag_color)
+		ft_strdel(&format->color);
 	ft_strdel(&format->size);
 	ft_strdel(&format->output);
 	ft_memdel(data);
