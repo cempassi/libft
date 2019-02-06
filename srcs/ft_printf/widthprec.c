@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 13:57:26 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/05 18:06:35 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ char		*colors(t_format *format, char *tmp)
 	char	*join;
 	int		id;
 
+	if (!format->color)
+		return (tmp);
 	id = ft_strspn(tmp, " ");
 	join = NULL;
 	if (id)
