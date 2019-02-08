@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/04 21:41:14 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:31:05 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static int	return_manager(int mask)
 }
 
 t_list		*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
-					void (*del)(void **))
+					void (*del)(void *))
 {
 	t_list		*tmp;
 
@@ -51,7 +51,7 @@ t_list		*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
 }
 
 int			ft_lstremove_if(t_list **lst, void *data,\
-							int (*tst)(void *, void *), void (*del)(void **))
+							int (*tst)(void *, void *), void (*del)(void *))
 {
 	t_list		*tmp;
 

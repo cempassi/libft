@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:24:23 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:30:22 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -124,7 +124,7 @@ t_list				*ft_lstfilter(t_list **lst, void *filter,\
 t_list				*ft_lstfind(t_list *alst, void *to_find,\
 					int (*f)(t_list *, void *));
 int					ft_lstremove_if(t_list **lst, void *data,\
-					int (*tst)(void *, void *), void (*del)(void **));
+					int (*tst)(void *, void *), void (*del)(void *));
 
 void				ft_freetab(char ***tab);
 
