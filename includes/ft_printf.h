@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 12:50:36 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/08 17:34:30 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int						ft_vasprintf(char **dst, const char *format,\
 						va_list args);
 
 t_list					*format_list(const char *format, va_list args);
-void					format_delete(void **data);
+void					format_delete(void *data);
 int						doutput(const char *format, t_list *node, int fd);
 int						soutput(char **dst, const char *fmt, t_list *node);
 

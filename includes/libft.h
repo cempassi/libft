@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:30:22 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:33:43 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,14 +108,14 @@ int					ft_ringbuffer(char *str, int fd);
 void				ft_mergesort(t_list **lst, int (*cmp)(void *, void *));
 t_list				*ft_lstnew(void const *data, size_t data_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *));
-void				ft_lstdelnext(t_list *current, void f(void **));
+void				ft_lstdelnext(t_list *current, void f(void *));
 void				*ft_lstdel(t_list **alst, void (*del)(void *));
+void				ft_lstpop(t_list **lst, void (*f)(void *));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 size_t				ft_lstlen(t_list *lst);
 t_list				*ft_lstmerge(t_list **alst, t_list *blst);
-void				ft_lstpop(t_list **lst, void (*f)(void **));
 void				ft_lstrev(t_list **alst);
 int					ft_lstaddback(t_list **alst, t_list *new);
 t_list				*ft_tabtolst(char **tab);

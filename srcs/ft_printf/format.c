@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/06 20:00:00 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:37:14 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,11 @@ static t_list	*parser(char *spec, va_list args)
 	return (ft_lstnew(&format, sizeof(t_format)));
 }
 
-void			format_delete(void **data)
+void			format_delete(void *data)
 {
 	t_format *format;
 
-	format = (t_format *)(*data);
+	format = (t_format *)(data);
 	if (format->type == 's')
 		ft_strdel(&format->arg.string);
 	if (format->flag_color)
