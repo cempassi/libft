@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:37:14 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/08 17:45:03 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ void			format_delete(void *data)
 		ft_strdel(&format->color);
 	ft_strdel(&format->size);
 	ft_strdel(&format->output);
-	ft_memdel(data);
 }
 
 t_list			*format_list(const char *format, va_list args)
