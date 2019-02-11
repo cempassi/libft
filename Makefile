@@ -149,8 +149,14 @@ WFLAGS +=-Wextra
 IFLAGS =-I$(PATHI)
 CFLAGS =$(WFLAGS)
 
-vpath %.c srcs/lib
+vpath %.c srcs/conversion
 vpath %.c srcs/ft_printf
+vpath %.c srcs/list
+vpath %.c srcs/memory
+vpath %.c srcs/other
+vpath %.c srcs/output
+vpath %.c srcs/string
+vpath %.c srcs/tab
 vpath %.h includes
 
 all : $(PATHO) $(NAME)
