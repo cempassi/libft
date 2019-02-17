@@ -23,8 +23,12 @@ MKDIR = mkdir -p
 PATHO =objs/
 PATHI =includes/
 
-INCS = libft.h
-INCS = ft_printf.h
+INCS += libft.h
+INCS += ft_printf.h
+INCS += conversion.h
+INCS += output.h
+INCS += memory.h
+INCS += list.h
 
 #--------------------Memory--------------------#
 SRCS +=ft_bzero.c
