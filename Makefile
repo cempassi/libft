@@ -6,7 +6,7 @@
 #    By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/02/18 03:56:15 by cedricmpa        ###   ########.fr        #
+#    Updated: 2019/02/18 06:43:56 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ INCS += output.h
 INCS += memory.h
 INCS += list.h
 INCS += test.h
+INCS += other.h
 
 #--------------------Memory--------------------#
 SRCS += ft_bzero.c

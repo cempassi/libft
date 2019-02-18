@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 05:28:33 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 06:47:54 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,12 @@
 # include <stdarg.h>
 # include <stdint.h>
 # include <stddef.h>
-# include "libft.h"
+# include "str.h"
+# include "list.h"
+# include "memory.h"
+# include "other.h"
+# include "conversion.h"
+# include "output.h"
 # define BUFF_SIZE 4096
 # define BASE_MAX 66
 # define FLAGS "-+0 #@"

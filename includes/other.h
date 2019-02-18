@@ -1,30 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft.h                                            :+:      :+:    :+:   */
+/*   other.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 06:40:55 by cempassi         ###   ########.fr       */
+/*   Created: 2019/02/18 06:38:15 by cempassi          #+#    #+#             */
+/*   Updated: 2019/02/18 06:38:47 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
-# define BUFF_SIZE 4096
-# define BASE_MAX 66
-# include <string.h>
-# include "ft_printf.h"
-# include "list.h"
-# include "str.h"
-# include "memory.h"
-# include "output.h"
-# include "conversion.h"
-# include "test.h"
-# include "other.h"
+#ifndef OTHER_H
+# define OTHER_H
 
-void				ft_freetab(char ***tab);
-char				**ft_getargstab(int ac, char **av);
-int					ft_getopt(int ac, char **av, const char *optstr);
+int					ft_isalpha(int c);
+int					ft_isalnum(int c);
+int					ft_isascii(int c);
+int					ft_isdigit(int c);
+int					ft_isprint(int c);
+int					ft_tolower(int c);
+int					ft_toupper(int c);
+
 #endif
