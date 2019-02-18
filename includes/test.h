@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 13:27:55 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 04:35:48 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/18 07:43:32 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 
 int 	run_test(t_stack *testList);
 int		load_test(t_stack *tests, char *name, int (*f)(void));
-void	signal_catch(int signal);
-void	init_signal_catcher(void);
 
 typedef struct	s_test
 {

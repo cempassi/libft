@@ -6,15 +6,44 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 05:38:31 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 05:11:20 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/18 07:43:53 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <signal.h>
 #include <sys/wait.h>
 #include <stdlib.h>
 #include "libft.h"
-#include "ft_printf.h"
+
+static void		signal_catch(int signal)
+{
+	if (WTERMSIG(signal) == SIGSEGV)
+		ft_dprintf(2, "%@s\n", RED, "[SEGV]");
+	if (WTERMSIG(signal) == SIGBUS)
+		ft_dprintf(2, "%@s\n", RED, "[BUSE]");
+	if (WTERMSIG(signal) == SIGABRT)
+		ft_dprintf(2, "%@s\n", RED, "[ABRT]");
+	if (WTERMSIG(signal) == SIGILL)
+		ft_dprintf(2, "%@s\n", RED, "[SILL]");
+	if (WTERMSIG(signal) == SIGFPE)
+		ft_dprintf(2, "%@s\n", RED, "[FPEX]");
+	exit(3);
+}
+
+static void		init_signal_catcher(void)
+{
+	if (signal(SIGBUS, signal_catch) == SIG_ERR)
+		ft_dprintf(2,"Error occured catching the SIGBUS.");
+	if (signal(SIGSEGV, signal_catch) == SIG_ERR)
+		ft_dprintf(2,"Error occured catching the SIGSEGV.");
+	if (signal(SIGABRT, signal_catch) == SIG_ERR)
+		ft_dprintf(2,"Error occured catching the SIGSEGV.");
+	if (signal(SIGILL, signal_catch) == SIG_ERR)
+		ft_dprintf(2,"Error occured catching the SIGSEGV.");
+	if (signal(SIGFPE, signal_catch) == SIG_ERR)
+		ft_dprintf(2,"Error occured catching the SIGSEGV.");
+}
 
 static void		parent_manager(void)
 {
@@ -26,10 +55,10 @@ static void		parent_manager(void)
 		if (WEXITSTATUS(checker) == EXIT_SUCCESS)
 			ft_printf("%@s\n", GREEN, "[OK]");
 		else if (WEXITSTATUS(checker) == EXIT_FAILURE)
-			ft_printf("%@s\n", RED, "[KO]");
+			ft_dprintf(2, "%@s\n", RED, "[KO]");
 	}
 	else if (WIFSIGNALED(checker))
-		ft_printf("%@s\n", RED, "Sig not handled");	
+		ft_dprintf(2, "%@s\n", RED, "Sig not handled");	
 }
 
 int				load_test(t_stack *head, char *name, int (*f)(void))
