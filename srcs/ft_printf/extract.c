@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/18 20:40:22 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/05 20:21:25 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 01:07:13 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void		extract_flags(char **spec, t_format *format, va_list args)
 	else if (**spec == '@' && !format->flag_color && (format->flag_color = 1))
 	{
 		format->color = va_arg(args, char *);
-		format->color = format->color ? ft_strdup(format->color) : NULL;
+		format->color = format->color ? ft_strjoin(FGCOL, format->color) : NULL;
 	}
 	else if (**spec == '0' && !format->flag_minus && format->flag_zero == 0)
 		format->flag_zero = ft_strchr(*spec, '.') ? -1 : 1;

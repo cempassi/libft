@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/30 15:20:45 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:34:30 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 05:28:33 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@
 # define OCTAL "01234567"
 # define HEXA "0123456789abcdef"
 # define END_COLOR "\x1b[0m"
+# define ESC "\x1b["
+# define FGCOL "\x1b[38;5;"
 
 typedef struct s_format	t_format;
 typedef void			(*t_convert)(t_format *);

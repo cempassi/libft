@@ -6,13 +6,32 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 10:19:59 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/04 21:37:42 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 05:36:31 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdint.h>
 #include <stdlib.h>
 #include "ft_printf.h"
+
+static char		*str_colors(t_format *format, char *tmp)
+{
+	char	*join;
+	int		id;
+
+	if (!format->color)
+		return (tmp);
+	join = NULL;
+	if ((id = ft_strspn(tmp, " ")))
+		ft_asprintf(&join, "%.*s%sm%s%s"
+							, id, tmp , format->color, &tmp[id], END_COLOR);
+	else if ((id = ft_strlen(format->arg.string)))
+		ft_asprintf(&join, "%sm%.*s%s%s"
+						, format->color, id, tmp, END_COLOR, &tmp[id]);
+	format->color_len += ft_strlen(format->color) + ft_strlen(END_COLOR) + 1;
+	ft_strdel(&tmp);
+	return (join);
+}
 
 static char		*converter(t_format *format)
 {
@@ -58,7 +77,7 @@ void			string(t_format *format)
 	if (format->width > 0)
 		tmp = width(format, tmp);
 	if (format->flag_color)
-		tmp = colors(format, tmp);
+		tmp = str_colors(format, tmp);
 	format->output = tmp;
 	return ;
 }

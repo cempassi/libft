@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/17 20:48:55 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/18 02:37:09 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include "memory.h"
 # include "output.h"
 # include "conversion.h"
+# include "test.h"
 
 int					ft_isalpha(int c);
 int					ft_isalnum(int c);

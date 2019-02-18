@@ -6,7 +6,7 @@
 /*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 17:08:00 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/05 18:06:35 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 05:38:02 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,20 +96,14 @@ char		*colors(t_format *format, char *tmp)
 
 	if (!format->color)
 		return (tmp);
-	id = ft_strspn(tmp, " ");
 	join = NULL;
-	if (id)
-	{
-		ft_asprintf(&join, "%.*s%s%s%s", id, tmp
-							, format->color, &tmp[id], END_COLOR);
-	}
-	else
-	{
-		id = ft_strcspn(tmp, " ");
-		ft_asprintf(&join, "%s%.*s%s%s", format->color, id
-							, tmp, END_COLOR, &tmp[id]);
-	}
-	format->color_len += ft_strlen(format->color) + ft_strlen(END_COLOR);
+	if ((id = ft_strspn(tmp, " ")))
+		ft_asprintf(&join, "%.*s%sm%s%s"
+					, id, tmp, format->color, &tmp[id], END_COLOR);
+	else if ((id = ft_strcspn(tmp, " ")))
+		ft_asprintf(&join, "%sm%.*s%s%s"
+					, format->color, id, tmp, END_COLOR, &tmp[id]);
+	format->color_len += ft_strlen(format->color) + ft_strlen(END_COLOR) + 1;
 	ft_strdel(&tmp);
 	return (join);
 }
