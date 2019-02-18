@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:53:23 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 07:38:26 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 17:41:12 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int				ft_dirlist(t_list **dirlist, char *path)
 	DIR			*current;
 	int			ret;
 
-	if ((current = opendir(path)))
+	if (!(current = opendir(path)))
 		return (-1);
 	if ((ret = create_list(current, path, dirlist)))
 		return (ret);
