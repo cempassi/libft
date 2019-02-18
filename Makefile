@@ -6,7 +6,7 @@
 #    By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/02/18 06:43:56 by cempassi         ###   ########.fr        #
+#    Updated: 2019/02/18 07:34:05 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -162,6 +162,10 @@ SRCS += other.c
 SRCS += test.c
 SRCS += sigtest.c
 
+#--------------------directory--------------------#
+SRCS += ft_dirlist.c
+SRCS += ft_dirdel.c
+
 DSYM += $(NAME).dSYM
 DSYM += $(DBNAME).dSYM
 
@@ -175,6 +179,7 @@ IFLAGS = -I$(PATHI)
 CFLAGS = $(WFLAGS)
 
 vpath %.c srcs/conversion
+vpath %.c srcs/directory
 vpath %.c srcs/ft_printf
 vpath %.c srcs/list
 vpath %.c srcs/memory

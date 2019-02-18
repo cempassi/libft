@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 06:40:55 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/18 06:59:31 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string.h>
 # include "ft_printf.h"
 # include "list.h"
+# include "directory.h"
 # include "str.h"
 # include "memory.h"
 # include "output.h"
