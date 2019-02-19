@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 13:27:55 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 07:43:32 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/19 19:51:14 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 # define GREEN "76"
 # define YELLOW "226"
 # define BLUE "39"
+# define ISTRUE 0
+# define ISFALSE -1
 
 int 	run_test(t_stack *testList);
 int		load_test(t_stack *tests, char *name, int (*f)(void));
