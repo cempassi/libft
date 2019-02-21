@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 05:38:31 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 07:43:53 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2019/02/18 18:46:01 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ static void		parent_manager(void)
 			ft_dprintf(2, "%@s\n", RED, "[KO]");
 	}
 	else if (WIFSIGNALED(checker))
-		ft_dprintf(2, "%@s\n", RED, "Sig not handled");	
+		ft_dprintf(2, "%@s\n", RED, "Sig not handled");
 }
 
 int				load_test(t_stack *head, char *name, int (*f)(void))
