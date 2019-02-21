@@ -6,24 +6,22 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 19:07:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/21 21:11:09 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static void	parser(char const *s, char *c, int *wordnum)
+static int	parser(char const *s, char *c)
 {
 	while (ft_strchr(c, *s) && *s)
 		s++;
 	if (*s == '\0')
-		return ;
-	if (*s)
-		*wordnum += 1;
+		return (0);
 	while (!ft_strchr(c, *s) && *s)
 		s++;
-	return (parser(s, c, wordnum));
+	return (1 + parser(s, c));
 }
 
 static int	writer(char const *s, char *c, char ***tab, int word)
@@ -53,10 +51,8 @@ char		**ft_strsplit(char const *s, char *c)
 	char	**tab;
 	int		wordnum;
 
-	if (!s)
+	if (!s || !(wordnum = parser(s, c)))
 		return (NULL);
-	wordnum = 0;
-	parser(s, c, &wordnum);
 	if (!(tab = (char **)malloc(sizeof(char *) * (wordnum + 1))))
 		return (NULL);
 	if (writer(s, c, &tab, 0) == -1)

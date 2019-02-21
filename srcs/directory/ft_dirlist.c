@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:53:23 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 17:41:12 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/02/21 20:50:57 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static int		create_list(DIR *current, char *path, t_list **lst)
 
 	if (!(file = (void *)readdir(current)))
 		return (0);
+	if (ft_strequ(file->d_name, ".") || ft_strequ(file->d_name, ".."))
+		return (create_list(current, path, lst));
 	ft_bzero(&tmp, sizeof(t_status));
 	ft_asprintf(&tmp.path, "%s/%s", path, file->d_name);
 	if (!tmp.path)
