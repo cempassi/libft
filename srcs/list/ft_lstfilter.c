@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/01 16:34:53 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/01 17:36:57 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))
 {
 	t_list	*node;
 
-	if (!c || !c->next)
+	if (!c)
 		return ;
 	if (f(c->data, ftr))
 	{
-		node= ft_lstnew(&c->data ,c->data_size);
+		node = ft_lstnew(c->data ,c->data_size);
 		ft_lstaddback(h, node);
-		return (extract(h, c->next->next, ftr, f));
 	}
 	return (extract(h, c->next, ftr, f));
 }
