@@ -6,7 +6,7 @@
 #    By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/02/18 07:43:17 by cempassi         ###   ########.fr        #
+#    Updated: 2019/03/01 22:33:28 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -112,6 +112,7 @@ SRCS += ft_getargstab.c
 #--------------------Lists-----------------------#
 SRCS += ft_mergesort.c
 SRCS += ft_lstadd.c
+SRCS += ft_lstcpy.c
 SRCS += ft_lstdelone.c
 SRCS += ft_lstdelnext.c
 SRCS += ft_lstdel.c
