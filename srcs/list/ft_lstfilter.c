@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/21 19:22:28 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/01 16:34:53 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,22 @@ static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))
 
 	if (!c || !c->next)
 		return ;
-	if (f(c->next->data, ftr))
+	if (f(c->data, ftr))
 	{
-		node = c->next;
-		c->next = c->next->next;
-		node->next = NULL;
+		node= ft_lstnew(&c->data ,c->data_size);
 		ft_lstaddback(h, node);
 		return (extract(h, c->next->next, ftr, f));
 	}
 	return (extract(h, c->next, ftr, f));
 }
 
-t_list		*ft_lstfilter(t_list **lst, void *filter, int (*f)(void *, void *))
+t_list		*ft_lstfilter(t_list *lst, void *filter, int (*f)(void *, void *))
 {
 	t_list *new;
 
 	new = NULL;
-	if (f((*lst)->data, filter))
-	{
-		new = (*lst);
-		*lst = (*lst)->next;
-		new->next = NULL;
-	}
-	extract(&new, *lst, filter, f);
+	if (f(lst->data, filter))
+		new = ft_lstnew(lst->data, lst->data_size);
+	extract(&new, lst->next, filter, f);
 	return (new);
 }
