@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 03:19:35 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/01 22:50:02 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void		ft_freetab(char ***tab)
 	char	**tmp;
 	int		i;
 
+	if (!*tab)
+		return ;
 	tmp = *tab;
 	i = 0;
 	if (*tab)
