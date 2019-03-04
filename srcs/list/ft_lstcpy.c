@@ -6,13 +6,13 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/01 22:30:05 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/02 00:28:23 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:20:24 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list 			*ft_lstcpy(t_list *source, int (*cpy)(void *, void *))
+t_list			*ft_lstcpy(t_list *source, int (*cpy)(void *, void *))
 {
 	t_list		*copy;
 	t_list		*node;
@@ -20,7 +20,7 @@ t_list 			*ft_lstcpy(t_list *source, int (*cpy)(void *, void *))
 	copy = NULL;
 	while (source)
 	{
-		if(!(node = ft_lstnew(source->data, source->data_size)))
+		if (!(node = ft_lstnew(source->data, source->data_size)))
 			return (NULL);
 		cpy(node->data, source->data);
 		ft_lstadd(&copy, node);

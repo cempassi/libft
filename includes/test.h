@@ -6,13 +6,12 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 13:27:55 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/19 19:51:14 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:16:56 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBUNIT_H
-# define LIBUNIT_H
-# define TEST(x) ((t_test *)(to_test->data))->x
+#ifndef TEST_H
+# define TEST_H
 # include "libft.h"
 # define RED "124"
 # define GREEN "76"
@@ -21,12 +20,12 @@
 # define ISTRUE 0
 # define ISFALSE -1
 
-int 	run_test(t_stack *testList);
-int		load_test(t_stack *tests, char *name, int (*f)(void));
-
 typedef struct	s_test
 {
 	char	*name;
 	int		(*test)(void);
 }				t_test;
+
+int				run_test(t_stack *tests);
+int				load_test(t_stack *tests, char *name, int (*f)(void));
 #endif

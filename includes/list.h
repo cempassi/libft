@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 21:17:56 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/02 00:28:09 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:15:27 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ typedef struct		s_stack
 	t_list			*head;
 }					t_stack;
 
-t_list 				*ft_lstcpy(t_list *source, int (*cpy)(void *, void *));
+t_list				*ft_lstcpy(t_list *source, int (*cpy)(void *, void *));
 void				ft_mergesort(t_list **lst, int (*cmp)(void *, void *));
 t_list				*ft_lstnew(void const *data, size_t data_size);
 void				ft_lstdelone(t_list **alst, void (*del)(void *));

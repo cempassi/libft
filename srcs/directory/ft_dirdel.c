@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 07:25:43 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/18 07:38:40 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:18:16 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	dir_del(void *file)
 	t_status	*tmp;
 
 	tmp = (t_status *)file;
-	if(tmp->path)
+	if (tmp->path)
 		ft_strdel(&tmp->path);
-	if(tmp->name)
+	if (tmp->name)
 		ft_strdel(&tmp->name);
 }
 
-void	ft_dirdel(t_list **dirlist)
+void		ft_dirdel(t_list **dirlist)
 {
-	ft_lstdel(dirlist, dir_del);	
+	ft_lstdel(dirlist, dir_del);
 }

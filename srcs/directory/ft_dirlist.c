@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 06:53:23 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/21 20:50:57 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/04 18:17:54 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static int		create_list(DIR *current, char *path, t_list **lst)
 		return (-1);
 	if (!(tmp.name = ft_strdup(file->d_name)))
 		return (-2);
-	if(!(node = ft_lstnew(&tmp, sizeof(t_status))))
+	if (!(node = ft_lstnew(&tmp, sizeof(t_status))))
 		return (-2);
 	ft_lstaddback(lst, node);
 	return (create_list(current, path, lst));
