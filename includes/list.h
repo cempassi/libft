@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 21:17:56 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/04 18:15:27 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:33:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ typedef struct		s_stack
 	t_list			*head;
 }					t_stack;
 
+typedef int			(*t_cmp)(void *, void *);
+
 t_list				*ft_lstcpy(t_list *source, int (*cpy)(void *, void *));
 void				ft_mergesort(t_list **lst, int (*cmp)(void *, void *));
 t_list				*ft_lstnew(void const *data, size_t data_size);
@@ -41,8 +43,8 @@ t_list				*ft_lstmerge(t_list **alst, t_list *blst);
 void				ft_lstrev(t_list **alst);
 int					ft_lstaddback(t_list **alst, t_list *new);
 t_list				*ft_tabtolst(char **tab);
-t_list				*ft_lstfilter(t_list *lst, void *filter,\
-					int (*f)(void *, void *));
+t_list				*ft_lstfilter(t_list *lst, void *to_find, t_cmp filter,\
+					t_cmp cpy);
 t_list				*ft_lstfind(t_list *alst, void *to_find,\
 					int (*f)(void *, void *));
 int					ft_lstremove_if(t_list **lst, void *data,\
