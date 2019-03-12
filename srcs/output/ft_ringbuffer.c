@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/06 17:08:37 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 20:37:54 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/13 00:18:50 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,10 @@ static int		ft_ringflush(t_buffer *ring, int fd)
 
 int				ft_ringbuffer(char *str, int fd)
 {
-	static t_buffer ring = {.buffer = NULL, .index = 0, .room = BUFF_SIZE - 1};
+	static t_buffer ring = { .index = 0, .room = BUFF_SIZE - 1};
 	size_t			size;
 	size_t			diff;
 
-	if (!ring.buffer)
-		if (!(ring.buffer = ft_memalloc(BUFF_SIZE)))
-			return (-1);
 	if (!str)
 		return (ft_ringflush(&ring, fd));
 	size = ft_strlen(str);

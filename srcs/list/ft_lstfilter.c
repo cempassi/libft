@@ -6,33 +6,27 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 01:12:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/04 18:20:55 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/05 02:33:29 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	extract(t_list **h, t_list *c, void *ftr, int (*f)(void *, void *))
+t_list		*ft_lstfilter(t_list *lst, void *to_find, t_cmp filter, t_cmp cpy)
 {
+	t_list	*new;
 	t_list	*node;
 
-	if (!c)
-		return ;
-	if (f(c->data, ftr))
-	{
-		node = ft_lstnew(c->data, c->data_size);
-		ft_lstaddback(h, node);
-	}
-	return (extract(h, c->next, ftr, f));
-}
-
-t_list		*ft_lstfilter(t_list *lst, void *filter, int (*f)(void *, void *))
-{
-	t_list *new;
-
 	new = NULL;
-	if (f(lst->data, filter))
-		new = ft_lstnew(lst->data, lst->data_size);
-	extract(&new, lst->next, filter, f);
+	while (lst)
+	{
+		if (filter(lst->data, to_find))
+		{
+			node = ft_lstnew(lst->data, lst->data_size);
+			cpy(lst->data, node->data);
+			ft_lstaddback(&new, node);
+		}
+		lst = lst->next;
+	}
 	return (new);
 }
