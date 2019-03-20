@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/13 00:26:54 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/03/13 03:49:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int				ft_getopt(int ac, char **av, const char *optstr)
 {
 	static char *buffer = NULL;
 	static int	index = 0;
-	int				error;
+	int			error;
 
 	if (ac == 1 || av == NULL || optstr == NULL)
 		return (0);

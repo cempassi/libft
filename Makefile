@@ -6,7 +6,7 @@
 #    By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/03/01 22:33:28 by cempassi         ###   ########.fr        #
+#    Updated: 2019/03/20 15:49:41 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,8 @@ PURPLE = \033[0;35m
 CYAN = \033[0;36m
 WHITE = \033[0;37m
 
+# One Line Output
+ONELINE =\e[1A\r
 NAME = libft.a
 DBNAME = libftdb.a
 CLEANUP = rm -rf
@@ -63,89 +65,89 @@ SRCS += ft_isdigit.c
 SRCS += ft_isprint.c
 SRCS += ft_strcat.c
 SRCS += ft_strchr.c
+SRCS += ft_strclr.c
 SRCS += ft_strcmp.c
 SRCS += ft_strcpy.c
-SRCS += ft_strdup.c
-SRCS += ft_strlcat.c
-SRCS += ft_strlen.c
-SRCS += ft_strncat.c
-SRCS += ft_strncmp.c
-SRCS += ft_strncpy.c
-SRCS += ft_strnstr.c
-SRCS += ft_strrchr.c
-SRCS += ft_strstr.c
-SRCS += ft_strclr.c
+SRCS += ft_strcspn.c
 SRCS += ft_strdel.c
+SRCS += ft_strdup.c
 SRCS += ft_strequ.c
+SRCS += ft_strinsert.c
 SRCS += ft_striter.c
 SRCS += ft_striteri.c
 SRCS += ft_strjoin.c
+SRCS += ft_strlcat.c
+SRCS += ft_strlen.c
 SRCS += ft_strmap.c
 SRCS += ft_strmapi.c
+SRCS += ft_strncat.c
+SRCS += ft_strncmp.c
+SRCS += ft_strncpy.c
 SRCS += ft_strnequ.c
 SRCS += ft_strnew.c
+SRCS += ft_strnstr.c
+SRCS += ft_strrchr.c
+SRCS += ft_strrev.c
+SRCS += ft_strspn.c
+SRCS += ft_strstr.c
 SRCS += ft_strsub.c
 SRCS += ft_strtrim.c
+SRCS += ft_strupper.c
 SRCS += ft_tolower.c
 SRCS += ft_toupper.c
-SRCS += ft_strupper.c
-SRCS += ft_strinsert.c
-SRCS += ft_strcspn.c
-SRCS += ft_strspn.c
-SRCS += ft_strrev.c
 
 #--------------------Conversion------------------#
+SRCS += ft_abs.c
 SRCS += ft_atoi.c
-SRCS += ft_itoa.c
-SRCS += ft_ullitoa.c
-SRCS += ft_llitoa.c
 SRCS += ft_atoll_base.c
 SRCS += ft_atoull_base.c
 SRCS += ft_convert_base.c
-SRCS += ft_abs.c
+SRCS += ft_itoa.c
+SRCS += ft_llitoa.c
+SRCS += ft_ullitoa.c
 
 #----------------------Tab-----------------------#
-SRCS += ft_strsplit.c
 SRCS += ft_freetab.c
 SRCS += ft_getargstab.c
+SRCS += ft_strsplit.c
 
 #--------------------Lists-----------------------#
-SRCS += ft_mergesort.c
 SRCS += ft_lstadd.c
-SRCS += ft_lstcpy.c
-SRCS += ft_lstdelone.c
-SRCS += ft_lstdelnext.c
-SRCS += ft_lstdel.c
-SRCS += ft_lstiter.c
-SRCS += ft_lstmap.c
-SRCS += ft_lstnew.c
-SRCS += ft_lstrev.c
 SRCS += ft_lstaddback.c
-SRCS += ft_lstmerge.c
-SRCS += ft_lstfind.c
-SRCS += ft_lstlen.c
+SRCS += ft_lstcpy.c
+SRCS += ft_lstdel.c
+SRCS += ft_lstdelnext.c
+SRCS += ft_lstdelone.c
 SRCS += ft_lstfilter.c
+SRCS += ft_lstfind.c
+SRCS += ft_lstiter.c
+SRCS += ft_lstlen.c
+SRCS += ft_lstmap.c
+SRCS += ft_lstmerge.c
+SRCS += ft_lstnew.c
 SRCS += ft_lstremove_if.c
-SRCS += ft_tabtolst.c
+SRCS += ft_lstrev.c
+SRCS += ft_mergesort.c
+SRCS += ft_stckdestroy.c
+SRCS += ft_stckinit.c
 SRCS += ft_stckpop.c
 SRCS += ft_stckpush.c
-SRCS += ft_stckinit.c
-SRCS += ft_stckdestroy.c
+SRCS += ft_tabtolst.c
 
 #--------------------Output----------------------#
+SRCS += ft_getargslst.c
+SRCS += ft_getdelim.c
+SRCS += ft_getopt.c
 SRCS += ft_putchar.c
 SRCS += ft_putchar_fd.c
 SRCS += ft_putendl.c
 SRCS += ft_putendl_fd.c
 SRCS += ft_putnbr.c
 SRCS += ft_putnbr_fd.c
-SRCS += ft_putstr.c
 SRCS += ft_putnstr.c
+SRCS += ft_putstr.c
 SRCS += ft_putstr_fd.c
 SRCS += ft_ringbuffer.c
-SRCS += ft_getopt.c
-SRCS += ft_getdelim.c
-SRCS += ft_getargslst.c
 
 #--------------------ft_printf-------------------#
 SRCS += ft_printf.c
@@ -204,11 +206,11 @@ $(DBNAME): $(OBJD)
 
 $(OBJS): $(PATHO)%.o : %.c $(INCS)
 	$(COMPILE) $(CFLAGS) $(IFLAGS) $< -o $@
-	printf "$(BLUE)Compiling $<\n$(NC)"
+	printf "$(ONELINE)$(BLUE)Compiling $<                                    \n$(NC)"
 
 $(OBJD): $(PATHO)db%.o : %.c $(INCS)
 	$(DEBUG) $(DFLAGS) $(CFLAGS) $(IFLAGS) $< -o $@
-	printf "$(BLUE)Compiling $< for debug\n$(NC)"
+	printf "1$(BLUE)Compiling $<                for debug\n$(NC)"
 
 $(PATHO) :
 	$(MKDIR) $(PATHO)
