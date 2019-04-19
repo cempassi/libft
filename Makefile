@@ -6,7 +6,7 @@
 #    By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/03/20 15:49:41 by cempassi         ###   ########.fr        #
+#    Updated: 2019/04/19 16:28:17 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,6 +132,7 @@ SRCS += ft_stckdestroy.c
 SRCS += ft_stckinit.c
 SRCS += ft_stckpop.c
 SRCS += ft_stckpush.c
+SRCS += ft_stcktop.c
 SRCS += ft_tabtolst.c
 
 #--------------------Output----------------------#

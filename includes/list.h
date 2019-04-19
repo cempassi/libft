@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 21:17:56 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/05 02:33:19 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/04/19 16:28:20 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int					ft_stckpush(t_stack *stack, void *data, size_t size);
 void				*ft_stckpop(t_stack *stack);
 void				*ft_stcksize(t_stack *stack);
 void				ft_stckinit(t_stack *stack);
+void				*ft_stcktop(t_stack *stack);
 void				ft_stckdestroy(t_stack *stack, void (*f)(void *));
 #endif
