@@ -6,13 +6,15 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 00:06:08 by cempassi          #+#    #+#             */
-/*   Updated: 2018/11/08 12:13:47 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/13 13:24:39 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int		ft_putchar(int c)
 {
-	write(1, &c, 1);
+	if (c > 127 || c < 0)
+		return (-1);
+	return (write(1, &c, 1));
 }

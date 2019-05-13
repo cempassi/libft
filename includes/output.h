@@ -6,7 +6,7 @@
 /*   By: cedricmpassi <cempassi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 20:42:54 by cedricmpa         #+#    #+#             */
-/*   Updated: 2019/03/13 00:36:54 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/13 13:23:47 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ typedef struct		s_buffer
 	unsigned int	room;
 }					t_buffer;
 
-void				ft_putchar(char c);
+int					ft_putchar(int c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
