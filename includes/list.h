@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 21:17:56 by cempassi          #+#    #+#             */
-/*   Updated: 2019/05/15 16:42:55 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/15 17:00:46 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <string.h>
 
 typedef void		(*t_lstmod)(void *);
+typedef int			(*t_cmp)(void *, void *);
 
 typedef struct		s_list
 {
@@ -29,8 +30,6 @@ typedef struct		s_stack
 	t_list			*head;
 }					t_stack;
 
-typedef int			(*t_cmp)(void *, void *);
-
 t_list				*ft_lstcpy(t_list *source, int (*cpy)(void *, void *));
 void				ft_mergesort(t_list **lst, int (*cmp)(void *, void *));
 t_list				*ft_lstnew(void const *data, size_t data_size);
@@ -38,7 +37,7 @@ void				ft_lstdelone(t_list **alst, void (*del)(void *));
 void				ft_lstdelnext(t_list *current, void f(void *));
 void				*ft_lstdel(t_list **alst, void (*del)(void *));
 void				ft_lstadd(t_list **alst, t_list *new);
-void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void				ft_lstiter(t_list *lst, t_lstmod func);
 size_t				ft_lstlen(t_list *lst);
 t_list				*ft_lstmerge(t_list **alst, t_list *blst);
 void				ft_lstrev(t_list **alst);
