@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 21:17:56 by cempassi          #+#    #+#             */
-/*   Updated: 2019/05/15 17:00:46 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/17 19:11:26 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ size_t				ft_lstlen(t_list *lst);
 t_list				*ft_lstmerge(t_list **alst, t_list *blst);
 void				ft_lstrev(t_list **alst);
 int					ft_lstaddback(t_list **alst, t_list *new);
-t_list				*ft_tabtolst(char **tab);
+t_list				*ft_tabtolst(char **t);
 t_list				*ft_lstfilter(t_list *lst, void *to_find, t_cmp filter,\
 					t_cmp cpy);
 t_list				*ft_lstfind(t_list *alst, void *to_find,\

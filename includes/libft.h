@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/19 21:55:01 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/13 00:22:04 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/17 19:11:58 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@
 # include "test.h"
 # include "other.h"
 
-void				ft_freetab(char ***tab);
+void				ft_freetab(char ***t);
 char				**ft_getargstab(int ac, char **av);
 #endif

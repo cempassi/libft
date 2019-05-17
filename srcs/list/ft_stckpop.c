@@ -6,13 +6,12 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/25 17:57:29 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/25 06:21:07 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/17 19:14:17 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-#include "ft_printf.h"
 
 void	*ft_stckpop(t_stack *stack)
 {

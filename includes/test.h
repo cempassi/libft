@@ -6,17 +6,17 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 13:27:55 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/04 18:16:56 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/17 13:04:49 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TEST_H
 # define TEST_H
 # include "libft.h"
-# define RED "124"
-# define GREEN "76"
-# define YELLOW "226"
-# define BLUE "39"
+# define TEST_RED "124"
+# define TEST_GREEN "76"
+# define TEST_YELLOW "226"
+# define TEST_BLUE "39"
 # define ISTRUE 0
 # define ISFALSE -1
 

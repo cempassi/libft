@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/02 05:38:31 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/04 18:21:51 by cempassi         ###   ########.fr       */
+/*   Updated: 2019/05/17 13:05:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 static void		signal_catch(int signal)
 {
 	if (WTERMSIG(signal) == SIGSEGV)
-		ft_dprintf(2, "%@s\n", RED, "[SEGV]");
+		ft_dprintf(2, "%@s\n", TEST_RED, "[SEGV]");
 	if (WTERMSIG(signal) == SIGBUS)
-		ft_dprintf(2, "%@s\n", RED, "[BUSE]");
+		ft_dprintf(2, "%@s\n", TEST_RED, "[BUSE]");
 	if (WTERMSIG(signal) == SIGABRT)
-		ft_dprintf(2, "%@s\n", RED, "[ABRT]");
+		ft_dprintf(2, "%@s\n", TEST_RED, "[ABRT]");
 	if (WTERMSIG(signal) == SIGILL)
-		ft_dprintf(2, "%@s\n", RED, "[SILL]");
+		ft_dprintf(2, "%@s\n", TEST_RED, "[SILL]");
 	if (WTERMSIG(signal) == SIGFPE)
-		ft_dprintf(2, "%@s\n", RED, "[FPEX]");
+		ft_dprintf(2, "%@s\n", TEST_RED, "[FPEX]");
 	exit(3);
 }
 
@@ -53,12 +53,12 @@ static void		parent_manager(void)
 	if (WIFEXITED(checker))
 	{
 		if (WEXITSTATUS(checker) == EXIT_SUCCESS)
-			ft_printf("%@s\n", GREEN, "[OK]");
+			ft_printf("%@s\n", TEST_GREEN, "[OK]");
 		else if (WEXITSTATUS(checker) == EXIT_FAILURE)
-			ft_dprintf(2, "%@s\n", RED, "[KO]");
+			ft_dprintf(2, "%@s\n", TEST_RED, "[KO]");
 	}
 	else if (WIFSIGNALED(checker))
-		ft_dprintf(2, "%@s\n", RED, "Sig not handled");
+		ft_dprintf(2, "%@s\n", TEST_RED, "Sig not handled");
 }
 
 int				load_test(t_stack *head, char *name, int (*f)(void))
