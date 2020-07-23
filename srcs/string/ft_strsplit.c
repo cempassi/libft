@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 19:07:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/21 21:11:09 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:34 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:34:38 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int	parser(char const *s, char *c)
@@ -56,7 +56,10 @@ char		**ft_strsplit(char const *s, char *c)
 	if (!(tab = (char **)malloc(sizeof(char *) * (wordnum + 1))))
 		return (NULL);
 	if (writer(s, c, &tab, 0) == -1)
+	{
+		ft_freetab(&tab);
 		return (NULL);
+	}
 	tab[wordnum] = NULL;
 	return (tab);
 }

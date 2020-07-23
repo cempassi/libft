@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   output.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/20 01:37:04 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/03 01:50:32 by cedricmpa        ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:19 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <unistd.h>
+#include <stdlib.h>
 
 static int		format_to_str(const char **format, char **dst)
 {
@@ -38,7 +39,6 @@ int				soutput(char **dst, const char *fmt, t_list *node)
 {
 	t_format		*tmp;
 	char			*holder;
-	char			*s;
 
 	if (!*fmt)
 		return (ft_strlen(*dst));
@@ -46,8 +46,7 @@ int				soutput(char **dst, const char *fmt, t_list *node)
 	{
 		tmp = (t_format *)(node->data);
 		tmp->convert(tmp);
-		s = tmp->output;
-		if (!(holder = ft_strjoin(*dst, s)))
+		if (!(holder = ft_strjoin(*dst, tmp->output)))
 			return (-1);
 		ft_strdel(dst);
 		*dst = holder;

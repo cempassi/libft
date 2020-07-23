@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 15:10:39 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:35 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:35 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static char			*ft_sub(char const *s, unsigned int start, size_t len)
 {
 	char			*sub;
 
-	if (!(sub = (char *)malloc(len + 1)))
+	if (!(sub = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	sub = ft_ncpy(sub, s + start, len);
 	sub[len] = '\0';

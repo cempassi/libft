@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   doubles.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/19 13:38:49 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/03 12:28:17 by cedricmpa        ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:19 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ static long double	flag_create(t_format *format, char *flag)
 {
 	long double value;
 
-	value = 0;
 	if (ft_strequ(format->size, "l"))
 		value = format->arg.l_double;
 	else
@@ -53,8 +52,6 @@ static void			fill_float(t_format *format, char **tmp, long double value)
 	int		curr;
 	char	*holder;
 
-	prev = 0;
-	curr = 0;
 	i = -1;
 	while (++i < format->precision - 1)
 	{

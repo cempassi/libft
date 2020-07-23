@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/28 07:17:47 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:31:05 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:23 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:23 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,44 +28,42 @@ static int	return_manager(int mask)
 	return (check);
 }
 
-t_list		*ereaser(t_list *current, void *data, int (*test)(void *, void *),\
-					void (*del)(void *))
+t_list		*ereaser(t_list *current, void *data, t_cmp cmp, t_del del)
 {
 	t_list		*tmp;
 
 	if (!current)
 		return (NULL);
-	else if (test(current->data, data))
+	else if (cmp(current->data, data))
 	{
 		tmp = current->next;
 		ft_lstdelone(&current, del);
-		tmp = ereaser(tmp, data, test, del);
+		tmp = ereaser(tmp, data, cmp, del);
 		return_manager(1);
 		return (tmp);
 	}
 	else
 	{
-		current->next = ereaser(current->next, data, test, del);
+		current->next = ereaser(current->next, data, cmp, del);
 		return (current);
 	}
 }
 
-int			ft_lstremove_if(t_list **lst, void *data,\
-							int (*tst)(void *, void *), void (*del)(void *))
+int			ft_lstremove_if(t_list **lst, void *data, t_cmp cmp, t_del del)
 {
 	t_list		*tmp;
 
-	if (!lst || !*lst || !tst)
+	if (!lst || !*lst || !cmp)
 		return (return_manager(0));
-	if (tst((*lst)->data, data))
+	if (cmp((*lst)->data, data))
 	{
 		tmp = (*lst)->next;
 		ft_lstdelone(lst, del);
 		*lst = tmp;
 		return_manager(1);
-		return (ft_lstremove_if(lst, data, tst, del));
+		return (ft_lstremove_if(lst, data, cmp, del));
 	}
 	if ((*lst)->next)
-		(*lst)->next = ereaser((*lst)->next, data, tst, del);
+		(*lst)->next = ereaser((*lst)->next, data, cmp, del);
 	return (return_manager(0));
 }

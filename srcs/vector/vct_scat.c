@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstcpy.c                                        :+:      :+:    :+:   */
+/*   vct_scat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/01 22:30:05 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/04 18:22:57 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:39 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:39 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list			*ft_lstcpy(t_list *source, int (*cpy)(void *, void *))
-{
-	t_list		*copy;
-	t_list		*node;
+/*
+**	Concatenates `len` characters from the string `source`,
+**	to the vector `dest`. Resizes automaticaly.
+*/
 
-	copy = NULL;
-	while (source)
-	{
-		if (!(node = ft_lstnew(source->data, source->data_size)))
-			return (NULL);
-		if (cpy)
-			if (cpy(node->data, source->data))
-				return (NULL);
-		ft_lstadd(&copy, node);
-		source = source->next;
-	}
-	return (copy);
+int8_t	vct_scat(t_vector *dest, char *source,
+						uint64_t len)
+{
+	if (dest->size < (vct_len(dest) + len))
+		vct_resize(dest, (vct_len(dest) + len) + 1);
+	ft_strncat(dest->buffer, source, len);
+	return (0);
 }

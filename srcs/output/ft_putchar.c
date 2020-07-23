@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/29 00:06:08 by cempassi          #+#    #+#             */
-/*   Updated: 2019/05/13 13:24:39 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:30 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:30 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_putchar(int c)
+void	ft_putchar(char c)
 {
-	if (c > 127 || c < 0)
-		return (-1);
-	return (write(1, &c, 1));
+	write(1, &c, 1);
 }

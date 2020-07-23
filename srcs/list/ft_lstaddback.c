@@ -5,12 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/13 10:49:57 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:17 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:21 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "list.h"
+
+#include "libft.h"
 
 int		ft_lstaddback(t_list **alst, t_list *new)
 {

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/06 17:08:37 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/13 00:18:50 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:31 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:31 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ static int		ft_ringflush(t_buffer *ring, int fd)
 {
 	int				output;
 
-	output = ft_putstr_fd(&ring->buffer[ring->index], fd);
+	if ((output = ft_putstr_fd(&ring->buffer[ring->index], fd)) == -1)
+		output = ft_strlen(&ring->buffer[ring->index]);
 	ring->index += output;
 	if (ring->index >= BUFF_SIZE - 1)
 	{
@@ -29,7 +30,7 @@ static int		ft_ringflush(t_buffer *ring, int fd)
 
 int				ft_ringbuffer(char *str, int fd)
 {
-	static t_buffer ring = { .index = 0, .room = BUFF_SIZE - 1};
+	static t_buffer ring = {.buffer = {0}, .index = 0, .room = BUFF_SIZE - 1};
 	size_t			size;
 	size_t			diff;
 

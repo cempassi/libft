@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/18 19:38:06 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:45:03 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:19 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,11 @@ static void		format_init(t_format *format)
 
 static t_list	*parser(char *spec, va_list args)
 {
-	char		*holder;
 	t_format	format;
 
 	format_init(&format);
 	if (spec)
 	{
-		holder = spec;
 		spec++;
 		format.diff += 1;
 		if (ft_strchr(FLAGS, *spec))
@@ -64,7 +62,7 @@ void			format_delete(void *data)
 {
 	t_format *format;
 
-	format = (t_format *)(data);
+	format = (t_format *)data;
 	if (format->type == 's')
 		ft_strdel(&format->arg.string);
 	if (format->flag_color)

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/04 03:19:35 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/01 22:50:02 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:35 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:35 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void		ft_freetab(char ***tab)
 	char	**tmp;
 	int		i;
 
-	if (!*tab)
-		return ;
 	tmp = *tab;
 	i = 0;
 	if (*tab)

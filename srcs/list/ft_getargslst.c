@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/25 17:43:50 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/02 13:56:08 by cedricmpa        ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:21 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,8 @@ t_list		*ft_getargslst(int ac, char **av)
 {
 	t_list	*lst;
 	int		i;
-	int		j;
 
 	i = 1;
-	j = 0;
 	lst = NULL;
 	while (i < ac && av[i][0] == '-' && av[i][1] && av[i][1] != '-')
 		i++;

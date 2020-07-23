@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/14 20:52:12 by cempassi          #+#    #+#             */
-/*   Updated: 2019/01/17 14:41:14 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static	int	converter(const char *str, long result, int sign)
 
 int			ft_atoi(const char *str)
 {
-	if (!str)
+	if (!str || !*str)
 		return (0);
 	while (ft_strchr("\f\n\r\t\v ", *str))
 		str++;

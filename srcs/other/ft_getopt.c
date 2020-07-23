@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/27 03:15:30 by cempassi          #+#    #+#             */
-/*   Updated: 2019/03/13 03:49:18 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:26 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:26 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,21 +57,20 @@ static char		parser(int ac, char **av, const char *optstr, char **opt)
 
 int				ft_getopt(int ac, char **av, const char *optstr)
 {
-	static char *buffer = NULL;
-	static int	index = 0;
-	int			error;
+	static t_opt_buffer	opt = {.buffer = NULL, .index = 0};
+	int					error;
 
 	if (ac == 1 || av == NULL || optstr == NULL)
 		return (0);
-	if (!buffer && av[1][0] == '-')
+	if (!opt.buffer && av[1][0] == '-')
 	{
-		buffer = ft_strnew(0);
-		if ((error = parser(ac, av, optstr, &buffer)) != 1)
+		opt.buffer = ft_strnew(0);
+		if ((error = parser(ac, av, optstr, &opt.buffer)) != 1)
 			return (-error);
 	}
-	if (buffer && buffer[index])
-		return ((int)buffer[(++index) - 1]);
-	else if (buffer)
-		ft_strdel(&buffer);
+	if (opt.buffer && opt.buffer[opt.index])
+		return ((int)opt.buffer[(++opt.index) - 1]);
+	else if (opt.buffer)
+		ft_strdel(&opt.buffer);
 	return (-1);
 }

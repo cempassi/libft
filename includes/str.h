@@ -3,16 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   str.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedricmpassi <cempassi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 20:36:32 by cedricmpa         #+#    #+#             */
-/*   Updated: 2019/03/13 00:27:05 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STR_H
 # define STR_H
 # include <string.h>
+# define VECTOR_BUFFER_SIZE 16
+
+typedef struct		s_magic
+{
+	unsigned long int	lw;
+	unsigned long int	hi;
+	unsigned long int	lo;
+
+}					t_magic;
 
 typedef struct		s_file
 {
@@ -21,6 +30,8 @@ typedef struct		s_file
 	char			*str;
 }					t_file;
 
+int					ft_strendswith(char *string, char *suffix);
+int					ft_strbeginswith(const char *string, char *prefix);
 void				ft_strclr(char *c);
 char				*ft_strcat(char *s1, const char *s2);
 void				ft_strdel(char **as);
@@ -51,6 +62,9 @@ size_t				ft_strlen(const char *s);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strrev(char *str);
 void				ft_strupper(char *str);
+void				ft_strlower(char *str);
+int					ft_isnumeric(char *str);
+int					ft_strcheck(char *str, int (*f)(int));
 int					ft_getdelim(const int fd, char **line, char delim);
 char				*ft_strnstr(const char *haystack, const char *needle,\
 					size_t len);

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 12:56:27 by cempassi          #+#    #+#             */
-/*   Updated: 2019/02/08 17:29:22 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:21 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:21 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static t_list	*eraser(t_list *current, void (*del)(void *))

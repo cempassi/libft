@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   digit.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/19 11:38:30 by nrechati          #+#    #+#             */
-/*   Updated: 2019/02/04 21:37:04 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:19 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static long long	flag_create(t_format *format, char *flag)
 {
 	long long		value;
 
-	value = 0;
 	if (ft_strequ(format->size, "hh"))
 		value = format->arg.character;
 	else if (ft_strequ(format->size, "h"))

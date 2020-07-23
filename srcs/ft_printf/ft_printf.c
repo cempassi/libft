@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 15:28:43 by cempassi          #+#    #+#             */
-/*   Updated: 2019/05/13 14:28:51 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:19 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:19 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ int		ft_dprintf(int fd, const char *format, ...)
 	va_list	args;
 	int		result;
 
+	if (fd < 0)
+		return (-1);
 	va_start(args, format);
 	result = ft_vdprintf(format, args, fd);
 	va_end(args);

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/08 10:26:51 by cempassi          #+#    #+#             */
-/*   Updated: 2019/05/13 13:25:48 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:30 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:30 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ void			ft_putnbr(int n)
 
 	nb = (long)n;
 	if (n == 0)
-	{
-		ft_putchar('0');
-		return ;
-	}
+		return (ft_putchar('0'));
 	if (nb > 0)
 		return (converter(nb));
 	ft_putchar('-');

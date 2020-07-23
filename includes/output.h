@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   output.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cedricmpassi <cempassi@student.42.fr>      +#+  +:+       +#+        */
+/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/17 20:42:54 by cedricmpa         #+#    #+#             */
-/*   Updated: 2019/05/13 13:23:47 by cempassi         ###   ########.fr       */
+/*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
+/*   Updated: 2020/07/23 03:12:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef OUTPUT_H
 # define OUTPUT_H
 # define BUFF_SIZE 4096
+# include <string.h>
 
 typedef struct		s_buffer
 {
@@ -21,7 +22,13 @@ typedef struct		s_buffer
 	unsigned int	room;
 }					t_buffer;
 
-int					ft_putchar(int c);
+typedef struct		s_opt_buffer
+{
+	char			*buffer;
+	unsigned int	index;
+}					t_opt_buffer;
+
+void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
 void				ft_putendl_fd(char const *s, int fd);
