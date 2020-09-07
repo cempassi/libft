@@ -6,7 +6,7 @@
 #    By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2019/07/09 07:47:59 by cempassi         ###   ########.fr        #
+#    Updated: 2020/09/07 00:55:49 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -197,6 +197,7 @@ SRCS += ft_putnstr.c
 SRCS += ft_putstr_fd.c
 SRCS += ft_ringbuffer.c
 SRCS += ft_getopt.c
+SRCS += ft_getopt_utils.c
 SRCS += ft_getdelim.c
 SRCS += ft_getargslst.c
 

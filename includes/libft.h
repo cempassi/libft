@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/07/23 03:36:47 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/09/07 00:55:18 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,22 @@
 # include "vector.h"
 # include "get_next_line.h"
 
+typedef struct 	s_opt
+{
+	const char 		*optstr;
+	char 			**optlong;
+	char 			*error;
+	t_opt_buffer 	buffer;
+} 				t_opt;
+
 void				ft_freetab(char ***t);
 char				**ft_getargstab(int ac, char **av);
 void				ft_showtab(char **t);
 int					ft_tabsize(char **tab);
 int					ft_taboneach(char **current, void *context
 								, char *(*mod)(char *, void *));
-int					ft_getopt(int ac, char **av, const char *optstr);
+int 				check_opt(int ac, char **av, int av_index);
+int 				check_optarg(int ac, char **av, int av_index);
+int 				push_av_back(int ac, char **av, int av_index);
+int 				ft_getopt(int ac, char **av, t_opt *option, char **optarg);
 #endif

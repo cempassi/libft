@@ -6,71 +6,137 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:26 by cempassi          #+#    #+#             */
-/*   Updated: 2020/07/23 03:12:26 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/09/07 00:56:01 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include "vector.h"
 
-static int		push_back(char *to_push)
+static int add_opt_long(unsigned int ac, char **av, t_opt *option,
+						t_opt_buffer *opt)
 {
-	char	holder;
+	char *short_opt;
+	char *str;
+	int	  i;
 
-	if (!to_push)
-		return (1);
-	while (to_push[1])
+	i = 0;
+	while (option->optlong[i])
 	{
-		holder = to_push[0];
-		to_push[0] = to_push[1];
-		to_push[1] = holder;
-		to_push++;
+		str = option->optlong[i];
+		if (!ft_strncmp(&av[opt->av_index][2], str, ft_strcspn(str, "=")))
+		{
+			short_opt = ft_strchr(option->optlong[i], '=') + 1;
+			if (ft_strchr(opt->vector->buffer, short_opt[0])
+				&& short_opt[1] != ':')
+				return (0);
+			if (short_opt[1] == ':')
+			{
+				if (check_optarg(ac, av, opt->av_index++))
+					return (-1);
+			}
+			return (vct_scat(opt->vector, short_opt, ft_strlen(short_opt)));
+		}
 	}
-	return (0);
+	option->error = av[opt->av_index];
+	return (-1);
 }
 
-static char		parser(int ac, char **av, const char *optstr, char **opt)
+static int add_opt(unsigned int ac, char **av, t_opt *option, t_opt_buffer *opt)
 {
-	static int	lvl = 1;
-	int			flag;
-	int			i;
-	char		error;
+	int	  i;
+	int	  current;
+	char *check;
 
-	if (!opt || lvl == ac || !ft_strncmp(av[lvl], "--", 3) || av[lvl][0] != '-')
-		return (1);
 	i = 1;
-	flag = 1;
-	while (av[lvl][i] != '\0' && flag)
+	while (av[opt->av_index][i] != '\0')
 	{
-		error = av[lvl][i];
-		flag = av[lvl][i] != '-' && ft_strchr(optstr, av[lvl][i]) ? 1 : 0;
-		if (flag && push_back(ft_strchr(*opt, av[lvl][i])))
-			if (!(*opt = ft_strinsert(opt, av[lvl][i], ft_strlen(*opt))))
-				flag = 0;
-		i++;
+		current = av[opt->av_index][i++];
+		if ((check = ft_strchr(option->optstr, current)) == NULL)
+			return (-current);
+		if (!ft_strchr(opt->vector->buffer, current) || check[1] == ':')
+		{
+			if (vct_add(opt->vector, current) == -1)
+				return (-current);
+			if (check[1] == ':')
+			{
+				if (check_optarg(ac, av, opt->av_index))
+					return (-current);
+				opt->av_index += 1;
+				return (vct_add(opt->vector, ':') == -1 ? -current : current);
+			}
+		}
 	}
-	lvl++;
-	if (flag == 1 && (error = parser(ac, av, optstr, opt)) == 1)
-		return (1);
-	ft_strdel(opt);
-	return (error);
+	return (current);
 }
 
-int				ft_getopt(int ac, char **av, const char *optstr)
+static int parser(unsigned int ac, char **av, t_opt *option, t_opt_buffer *opt)
 {
-	static t_opt_buffer	opt = {.buffer = NULL, .index = 0};
+	int error;
+
+	error = 0;
+	if (check_opt(ac, av, opt->av_index) || opt->av_index == ac
+		|| !ft_strcmp(av[opt->av_index], "--"))
+	{
+		return (0);
+	}
+	if (!ft_strncmp(av[opt->av_index], "--", 2))
+	{
+		error = add_opt_long(ac, av, option, opt);
+		opt->av_index++;
+	}
+	else if (av[opt->av_index][0] == '-')
+	{
+		error = add_opt(ac, av, option, opt);
+		opt->av_index++;
+	}
+	else
+	{
+		push_av_back(ac, av, opt->av_index);
+	}
+	return (error < 0 ? error : parser(ac, av, option, opt));
+}
+
+int yield_opt(unsigned int ac, char **av, char **optarg, t_opt_buffer *opt)
+{
+	char option;
+
+	option = opt->vector->buffer[opt->index];
+	*optarg = NULL;
+	if (opt->vector->buffer[opt->index + 1] == ':')
+	{
+		while (av[opt->av_index][0] == '-' && opt->av_index < ac)
+		{
+			opt->av_index++;
+		}
+		*optarg = av[opt->av_index++];
+		++opt->index;
+	}
+	++opt->index;
+	return (option);
+}
+
+int ft_getopt(int ac, char **av, t_opt *option, char **optarg)
+{
+	static t_opt_buffer opt = { .vector = NULL, .index = 0, .av_index = 1 };
 	int					error;
 
-	if (ac == 1 || av == NULL || optstr == NULL)
+	if (ac == 1 || av == NULL || option == NULL)
 		return (0);
-	if (!opt.buffer && av[1][0] == '-')
+	error = 0;
+	if (!opt.vector && !check_opt(ac, av, 1))
 	{
-		opt.buffer = ft_strnew(0);
-		if ((error = parser(ac, av, optstr, &opt.buffer)) != 1)
+		opt.vector = vct_new(0);
+		if ((error = parser(ac, av, option, &opt)) != 0)
 			return (-error);
+		opt.av_index = 1;
 	}
-	if (opt.buffer && opt.buffer[opt.index])
-		return ((int)opt.buffer[(++opt.index) - 1]);
-	else if (opt.buffer)
-		ft_strdel(&opt.buffer);
-	return (-1);
+	else if (opt.vector && opt.vector->buffer[opt.index])
+		return (yield_opt(ac, av, optarg, &opt));
+	else if (opt.vector)
+	{
+		vct_del(&opt.vector);
+		return (-1);
+	}
+	return (0);
 }

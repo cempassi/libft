@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/07/23 03:12:18 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/08/31 17:04:44 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define OUTPUT_H
 # define BUFF_SIZE 4096
 # include <string.h>
+# include "vector.h"
 
 typedef struct		s_buffer
 {
@@ -24,8 +25,9 @@ typedef struct		s_buffer
 
 typedef struct		s_opt_buffer
 {
-	char			*buffer;
+	t_vector 		*vector;
 	unsigned int	index;
+	unsigned int 	av_index;
 }					t_opt_buffer;
 
 void				ft_putchar(char c);
