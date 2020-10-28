@@ -6,7 +6,7 @@
 #    By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2020/09/07 00:55:49 by cempassi         ###   ########.fr        #
+#    Updated: 2020/10/28 01:44:50 by cedricmpa        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -168,8 +168,10 @@ SRCS += ft_lstrev.c
 SRCS += ft_lstaddback.c
 SRCS += ft_lstmerge.c
 SRCS += ft_lstfind.c
+SRCS += ft_lstfold.c
 SRCS += ft_lstlen.c
 SRCS += ft_lstfilter.c
+SRCS += ft_lstmove_if.c
 SRCS += ft_lstremove_if.c
 SRCS += ft_tabtolst.c
 SRCS += ft_stckpop.c

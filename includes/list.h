@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/07/23 03:12:18 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/10/28 01:17:43 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ void				ft_lstdelnext(t_list *current, void f(void *));
 void				*ft_lstdel(t_list **alst, void (*del)(void *));
 int					ft_lstdelfirst(t_list **alst, void (*del)(void *));
 void				ft_lstadd(t_list **alst, t_list *new);
+void 				ft_lstfold(t_list *lst, void *acc,\
+							void (*f)(void *acc, void *data));
 void				ft_lstiter(t_list *lst, void (*f)(void *data));
 int					ft_lstiter_ctx(t_list *lst, void *context
 							, int (*f)(void *context, void *data));
@@ -50,11 +52,12 @@ void				ft_lstrev(t_list **alst);
 int					ft_lstaddback(t_list **alst, t_list *new);
 t_list				*ft_tabtolst(char **t);
 t_list				*ft_lstfilter(t_list *lst, void *to_find, t_cmp filter,\
-					t_cmp cpy);
-t_list				*ft_lstfind(t_list *alst, void *to_find,\
-					int (*f)(void *, void *));
+							t_cmp cpy);
+t_list				*ft_lstfind(t_list *alst, void *to_find, t_cmp f);
+int 				ft_lstmove_if(t_list **src, t_list **dst, void *to_find,\
+							t_cmp cmp);
 int					ft_lstremove_if(t_list **lst, void *data, t_cmp cmp,\
-					t_del del);
+							t_del del);
 t_list				*ft_lstsplit_if(t_list **lst, void *data, t_cmp cmp);
 int					ft_lstcmp(t_list *lst1, t_list *lst2,\
 					int (*f)(void *, void *));

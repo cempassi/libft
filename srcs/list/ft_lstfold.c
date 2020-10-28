@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstfind.c                                       :+:      :+:    :+:   */
+/*   ft_lstfold.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: cedricmpassi <cempassi@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/23 03:12:22 by cempassi          #+#    #+#             */
-/*   Updated: 2020/10/27 18:16:25 by cedricmpa        ###   ########.fr       */
+/*   Created: 2020/10/28 01:12:02 by cedricmpa         #+#    #+#             */
+/*   Updated: 2020/10/28 01:16:29 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+# include "list.h"
 
-t_list	*ft_lstfind(t_list *lst, void *to_find, t_cmp f)
+void ft_lstfold(t_list *lst, void *acc, void (*f)(void *acc, void *data))
 {
-	if (lst == NULL)
-		return (NULL);
-	return (f(lst->data, to_find) ? lst : ft_lstfind(lst->next, to_find, f));
+	while(lst)
+	{
+		f(acc, lst->data);
+		lst = lst->next;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/09/07 00:55:18 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/09/20 12:59:38 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct 	s_opt
 	char 			**optlong;
 	char 			*error;
 	t_opt_buffer 	buffer;
+	size_t 			first_arg;
 } 				t_opt;
 
 void				ft_freetab(char ***t);
@@ -47,7 +48,8 @@ int					ft_tabsize(char **tab);
 int					ft_taboneach(char **current, void *context
 								, char *(*mod)(char *, void *));
 int 				check_opt(int ac, char **av, int av_index);
-int 				check_optarg(int ac, char **av, int av_index);
+int 				check_optarg(int ac, char **av, char *current, int av_i);
+int 				check_optarg_long(int ac, char **av, int av_index);
 int 				push_av_back(int ac, char **av, int av_index);
 int 				ft_getopt(int ac, char **av, t_opt *option, char **optarg);
 #endif
