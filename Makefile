@@ -6,7 +6,7 @@
 #    By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2020/10/28 01:44:50 by cedricmpa        ###   ########.fr        #
+#    Updated: 2020/10/28 14:30:48 by cedricmpa        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,7 +44,6 @@ INCS += conversion.h
 INCS += output.h
 INCS += memory.h
 INCS += list.h
-INCS += test.h
 INCS += other.h
 INCS += hashmap.h
 INCS += vector.h
@@ -226,11 +225,6 @@ SRCS += ft_hmap_resize.c
 SRCS += ft_hmap_free_content.c
 SRCS += ft_hmap_collision.c
 SRCS += ft_hmap_hits.c
-
-#--------------------test------------------------#
-SRCS += framework.c
-SRCS += display_test.c
-SRCS += setup_test.c
 
 #--------------------directory--------------------#
 SRCS += ft_dirlist.c

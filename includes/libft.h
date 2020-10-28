@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/09/20 12:59:38 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/10/28 14:30:30 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@
 # include "memory.h"
 # include "output.h"
 # include "conversion.h"
-# include "test.h"
 # include "other.h"
 # include "hashmap.h"
 # include "vector.h"
