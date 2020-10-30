@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/07 00:53:42 by cempassi          #+#    #+#             */
-/*   Updated: 2020/09/20 12:26:17 by cempassi         ###   ########.fr       */
+/*   Updated: 2020/10/30 17:31:53 by cedricmpa        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int check_optarg(int ac, char **av, char *current, int av_index)
 		return (-1);
 	if (current[1] == '\0' && av[av_index + 1][0] == '\0')
 		return (-1);
-	return (current[1] == '\0' ? 0 : 1);
+	return (current[1] == '\0' ? 1 : 0);
 }
 
 int check_optarg_long(int ac, char **av, int av_index)
