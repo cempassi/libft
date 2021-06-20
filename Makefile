@@ -6,13 +6,13 @@
 #    By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2021/06/20 20:45:54 by cempassi         ###   ########.fr        #
+#    Updated: 2021/06/20 20:50:41 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
-COMPILE = $(CC) -c
-DEBUG = $(CC) -g3 -c #-fsanitize=address,undefined
+COMPILE = $(CC) -c -fPIC
+DEBUG = $(CC) -g -c -fPIC
 
 # Reset
 NC = \033[0m
