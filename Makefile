@@ -6,11 +6,11 @@
 #    By: nrechati <nrechati@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/02/17 23:46:04 by cempassi          #+#    #+#              #
-#    Updated: 2020/10/28 14:30:48 by cedricmpa        ###   ########.fr        #
+#    Updated: 2021/06/20 20:45:54 by cempassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = clang
+CC = gcc
 COMPILE = $(CC) -c
 DEBUG = $(CC) -g3 -c #-fsanitize=address,undefined
 

@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:23 by cempassi          #+#    #+#             */
-/*   Updated: 2020/07/23 03:12:23 by cempassi         ###   ########.fr       */
+/*   Updated: 2021/06/20 20:45:23 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 t_list	*ft_lstmerge(t_list **alst, t_list *blst)
 {
-	t_list *holder;
-
-	holder = *alst;
 	if (*alst == NULL)
 	{
 		*alst = blst;
