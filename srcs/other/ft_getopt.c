@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:26 by cempassi          #+#    #+#             */
-/*   Updated: 2020/09/20 13:00:07 by cempassi         ###   ########.fr       */
+/*   Updated: 2021/06/22 14:54:07 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ static int add_opt_long(unsigned int ac, char **av, t_opt *option,
 	int	  i;
 
 	i = 0;
+    if (option->optlong == NULL)
+    {
+	    option->error = av[opt->av_index];
+        return (-1);
+    }
 	while (option->optlong[i])
 	{
 		str = option->optlong[i];
