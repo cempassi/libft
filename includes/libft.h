@@ -6,7 +6,7 @@
 /*   By: cempassi <cempassi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 03:12:18 by cempassi          #+#    #+#             */
-/*   Updated: 2020/10/28 14:30:30 by cedricmpa        ###   ########.fr       */
+/*   Updated: 2021/06/22 17:21:51 by cempassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int					ft_tabsize(char **tab);
 int					ft_taboneach(char **current, void *context
 								, char *(*mod)(char *, void *));
 int 				check_opt(int ac, char **av, int av_index);
-int 				check_optarg(int ac, char **av, char *current, int av_i);
+int 				check_optarg(int ac, char **av, int av_i);
 int 				check_optarg_long(int ac, char **av, int av_index);
 int 				push_av_back(int ac, char **av, int av_index);
 int 				ft_getopt(int ac, char **av, t_opt *option, char **optarg);
